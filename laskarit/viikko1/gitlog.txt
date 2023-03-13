@@ -1,0 +1,113 @@
+commit 01eda57bbb47f3e06bcac4e809ec52313c903037
+Author: Eero-Pekka Karppinen <89537846+eepek@users.noreply.github.com>
+Date:   Mon Mar 13 19:48:45 2023 +0200
+
+    viimeinen commit
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit e9f611d8d13fee05e6918c6aa90a9f05ab56992f
+Author: Eero-Pekka Karppinen <89537846+eepek@users.noreply.github.com>
+Date:   Mon Mar 13 19:45:58 2023 +0200
+
+    Tehtävä 11
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit c697bdea56593f8e169cfb98788de7a582ec6c2b
+Author: Eero-Pekka Karppinen <89537846+eepek@users.noreply.github.com>
+Date:   Mon Mar 13 16:40:51 2023 +0200
+
+    muutokset eka ja kolmas
+
+ eka.txt    | 5 ++---
+ kolmas.txt | 5 ++++-
+ 2 files changed, 6 insertions(+), 4 deletions(-)
+
+commit 5124878584bd688f62161883855c5b7252429444
+Author: Eero-Pekka Karppinen <89537846+eepek@users.noreply.github.com>
+Date:   Mon Mar 13 16:39:20 2023 +0200
+
+    uudelleen nimeäminen
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 984770978db6b34fc780bed9f11451ed8aff5aa5
+Author: Eero-Pekka Karppinen <89537846+eepek@users.noreply.github.com>
+Date:   Mon Mar 13 16:38:28 2023 +0200
+
+    poistettiin toinen
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit d753203ba5ff859615284bd526076e3452e1d68a
+Author: Eero-Pekka Karppinen <89537846+eepek@users.noreply.github.com>
+Date:   Mon Mar 13 16:36:56 2023 +0200
+
+    tiedoston ipsumia muutettu
+
+ tiedosto.txt | 101 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 100 insertions(+), 1 deletion(-)
+
+commit 3e8b59a72818ccac4b0951aa0315512d6a4d8e0f
+Author: Eero-Pekka Karppinen <89537846+eepek@users.noreply.github.com>
+Date:   Mon Mar 13 16:35:55 2023 +0200
+
+    tiedostoon lorem ipsumia
+
+ tiedosto.txt | 102 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 101 insertions(+), 1 deletion(-)
+
+commit 55241685302064dfaa59a954a7067d4591256149
+Author: Eero-Pekka Karppinen <89537846+eepek@users.noreply.github.com>
+Date:   Mon Mar 13 16:33:00 2023 +0200
+
+    lisättiin kansio
+
+ stuff/filu.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 2b88252fd7e306baa1db37be28b746f6ba2f49d7
+Author: Eero-Pekka Karppinen <89537846+eepek@users.noreply.github.com>
+Date:   Mon Mar 13 16:31:25 2023 +0200
+
+    muutoksia toiseen ja kolmanteen
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit d51586f2e636c4c7deafc103fe6c21b587bbaa6f
+Author: Eero-Pekka Karppinen <89537846+eepek@users.noreply.github.com>
+Date:   Mon Mar 13 16:30:29 2023 +0200
+
+    lisättiin kolmas
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit f45ac57f122588d8ff62ddfc8d9dc67b5cb3a8ff
+Author: Eero-Pekka Karppinen <89537846+eepek@users.noreply.github.com>
+Date:   Mon Mar 13 16:28:49 2023 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 6a4e8899807b18dbd7e4fa22d2abd1f85cc929f3
+Author: Eero-Pekka Karppinen <89537846+eepek@users.noreply.github.com>
+Date:   Mon Mar 13 16:27:20 2023 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
