@@ -6,6 +6,7 @@
 
 The **initial** functionality for draft helper is to give instant advice which remaining players have the highest *ECR*.
 
+More functionality will be added if time permits
 ## Tehtävät
 
 ### Viikko 1
