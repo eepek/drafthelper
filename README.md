@@ -20,3 +20,5 @@ Extra rivi jolla halutaan epäsynkro
 ### Viikko 2
 
 [Screenshot coverage tuloksista](https://github.com/eepek/drafthelper/blob/main/laskarit/viikko2/tehtava9.png)
+
+[Harjoitustyön vaatimusmäärittely](https://github.com/eepek/drafthelper/blob/main/harjoitustyo/vaatimusmaarittely.md)
