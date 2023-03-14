@@ -16,3 +16,7 @@ Extra rivi jolla halutaan epäsynkro
 [gitlog.txt](https://github.com/eepek/drafthelper/blob/main/laskarit/viikko1/gitlog.txt)
 
 [komentorivi.txt](https://github.com/eepek/drafthelper/blob/main/laskarit/viikko1/komentorivi.txt)
+
+### Viikko 2
+
+[Screenshot coverage tuloksista](https://github.com/eepek/drafthelper/blob/main/laskarit/viikko2/tehtava9.png)
