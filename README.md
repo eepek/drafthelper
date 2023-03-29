@@ -21,6 +21,6 @@ Extra rivi jolla halutaan epäsynkro
 
 [Screenshot coverage tuloksista](https://github.com/eepek/drafthelper/blob/main/laskarit/viikko2/tehtava9.png)
 
-[Harjoitustyön vaatimusmäärittely](https://github.com/eepek/drafthelper/blob/main/harjoitustyo/vaatimusmaarittely.md)
+[Harjoitustyön vaatimusmäärittely](https://github.com/eepek/drafthelper/blob/main/drafthelper-app/dokumentaatio/vaatimusmaarittely.md)
 
-[Tuntikirjanpito](https://github.com/eepek/drafthelper/blob/main/harjoitustyo/tuntikirjanpito.md)
+[Tuntikirjanpito](https://github.com/eepek/drafthelper/blob/main/drafthelper-app/dokumentaatio/tuntikirjanpito.md)
