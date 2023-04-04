@@ -7,4 +7,4 @@
 |30.3|2|Otettu Pandas ja dataframet käyttöön|
 |31.3|4|Kaikkien luokkien funktioiden tekoa ja tekstikäyttöliittymän kehitystä|
 |3.4|2|Korjattu roster luokan vikakohtia|
-|4.4|3|Invoke käyttöön ja ensimmäinen testi roster luokalle tehty|
+|4.4|3|Invoke käyttöön ja ensimmäinen testi consensusranking luokalle tehty|
