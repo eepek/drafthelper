@@ -19,9 +19,9 @@ Ohjelma avautuu asetus näkymään, jossa käyttäjä pääsee valitsemaan liiga
 
 - Kun ei ole käyttäjän varausvuoro:
 
-  ~~ * Ohjelma näyttää konsensuslistan 10 korkeimmalle sijoitettua pelaajaa, joita ei ole vielä valittu, sekä hakuruudun. ~~
+  ~~* Ohjelma näyttää konsensuslistan 10 korkeimmalle sijoitettua pelaajaa, joita ei ole vielä valittu, sekä hakuruudun. ~~
     
-  ~~ * Käyttäjä poistaa valitun pelaajan listalta, joko painamalla valitun pelaajan nimeä, tai hakemalla valitun pelaajan. ~~
+  ~~* Käyttäjä poistaa valitun pelaajan listalta, joko painamalla valitun pelaajan nimeä, tai hakemalla valitun pelaajan. ~~
 
   * Ohjelma valitsee satunnaisen pelaajan rankinglistan viiden parhaan joukosta simuloiden aitoa varaustilaisuutta.
     
