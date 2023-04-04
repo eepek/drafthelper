@@ -1,26 +1,48 @@
 # Draft Helper
 
-## What does it do?
+Draft helper on ohjelma, jonka tarkoitus on auttaa käyttäjää harjoittelemaan ja kokeilemaan erilaisia skenaarioita NFL:n fantasia liigan varaustilaisuutta varten. Ohjelma mahdollistaa 6-14 joukkueen Full-PPR liigojen varaustilaisuuden mallinnuksen. Käyttäjän tueksi ohjelmisto tarjoaa Fantasy Pros sivuston useamman asiantuntijan arvioista koostaman konsensus arvion kolme parasta pelaajaa, jokaisella käyttäjän varausvuorolla. Käyttäjä voi myös valita muun pelaajan kirjoittamalla pelaajan nimen. Muitten varausvuorolla, ohjelmisto valitsee kyseisen vuoron joukkueeseen pelaajan konsensulistan kärkiviisikosta.
 
-### Initial functionality
+Ohjelma on Helsingin Yliopiston Tietojenkäsittelytieteen Ohjelmistotekniikan kurssin harjoitustyö.
 
-The **initial** functionality for draft helper is to give instant advice which remaining players have the highest *ECR*.
+### Ensimmäisen version toiminnallisuudet 4.4.2023
+- Ohjelma toimii tekstipohjaisessa käyttöliittymässä. Graafinen käyttöliittymä toteutetaan myöhemmin.
 
-More functionality will be added if time permits
+- Bottipelaajat osaavat valita satunnaisen pelaajan omalla varausvuorollaan.
 
-Extra rivi jolla halutaan epäsynkro
-## Tehtävät
+- Pelaaja voi omalla vuorollaan valita ehdotetun pelaajan, tai hakea nimellä muuta pelaajaa.
 
-### Viikko 1
+### Dokumentaatio:
 
-[gitlog.txt](https://github.com/eepek/drafthelper/blob/main/laskarit/viikko1/gitlog.txt)
+[Changelog](https://github.com/eepek/drafthelper/blob/main/drafthelper-app/dokumentaatio/changelog.md)
 
-[komentorivi.txt](https://github.com/eepek/drafthelper/blob/main/laskarit/viikko1/komentorivi.txt)
-
-### Viikko 2
-
-[Screenshot coverage tuloksista](https://github.com/eepek/drafthelper/blob/main/laskarit/viikko2/tehtava9.png)
-
-[Harjoitustyön vaatimusmäärittely](https://github.com/eepek/drafthelper/blob/main/drafthelper-app/dokumentaatio/vaatimusmaarittely.md)
+[Vaatimusmäärittely](https://github.com/eepek/drafthelper/blob/main/drafthelper-app/dokumentaatio/vaatimusmaarittely.md)
 
 [Tuntikirjanpito](https://github.com/eepek/drafthelper/blob/main/drafthelper-app/dokumentaatio/tuntikirjanpito.md)
+
+### Asennus ja suoritus:
+
+Asenna riippuvuudet komennolla:
+
+```bash
+poetry install
+```
+
+Suorita ohjelma:
+
+```bash
+poetry run invoke start
+```
+
+Testit ajetaan komennolla:
+
+
+```bash
+poetry run invoke test
+```
+
+Coverage raportti html muodossa muodostetaan komennolla (raportti löytyy _htmlcov_ hakemistosta):
+
+
+```bash
+poetry run invoke coverage-report
+```
