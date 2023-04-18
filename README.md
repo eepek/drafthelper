@@ -19,6 +19,8 @@ Ohjelma on Helsingin Yliopiston Tietojenkäsittelytieteen Ohjelmistotekniikan ku
 
 [Tuntikirjanpito](https://github.com/eepek/drafthelper/blob/main/drafthelper-app/dokumentaatio/tuntikirjanpito.md)
 
+[Arkkitehtuurikuvaus](https://github.com/eepek/drafthelper/blob/main/drafthelper-app/dokumentaatio/arkkitehtuuri.md)
+
 ### Asennus ja suoritus:
 
 Asenna riippuvuudet komennolla:
