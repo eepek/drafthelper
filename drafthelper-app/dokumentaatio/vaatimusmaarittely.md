@@ -13,7 +13,7 @@ Ohjelmassa on vain yksi käyttäjä tyyppi, peruskäyttäjä, joka pystyy säät
 
 ### Ohjelman käynnistyttyä
 
-Ohjelma avautuu asetus näkymään, jossa käyttäjä pääsee valitsemaan liigan koon ja oman varausvuoron.
+Ohjelma avautuu asetus näkymään, jossa käyttäjä pääsee valitsemaan liigan koon ja oman varausvuoron. - OK
 
 ### Varausnäkymä
 
@@ -23,19 +23,19 @@ Ohjelma avautuu asetus näkymään, jossa käyttäjä pääsee valitsemaan liiga
     
   ~~Käyttäjä poistaa valitun pelaajan listalta, joko painamalla valitun pelaajan nimeä, tai hakemalla valitun pelaajan.~~
 
-  * Ohjelma valitsee satunnaisen pelaajan rankinglistan viiden parhaan joukosta simuloiden aitoa varaustilaisuutta.
+  * Ohjelma valitsee satunnaisen pelaajan rankinglistan viiden parhaan joukosta simuloiden aitoa varaustilaisuutta. - OK
     
 - Käyttäjän varausvuoro:
 
-  * Ohjelma näyttää 3 parhaimmaksi arvioitua pelaajaa, ottaen huomioon käyttäjän jo täytetyt pelipaikat.
+  * Ohjelma näyttää 5 parhaimmaksi arvioitua pelaajaa, ottaen huomioon käyttäjän jo täytetyt pelipaikat. - OK
     
-  * Ohjelma tarjoaa myös hakuruudun, jolloin käyttäjä voi valita kokoonpanoonsa pelaajan, joka ei ole näkyvissä.
+  * Ohjelma tarjoaa myös hakuruudun, jolloin käyttäjä voi valita kokoonpanoonsa pelaajan, joka ei ole näkyvissä. - OK
     
-  * Käyttäjän valitessa pelaajan, pelaaja poistuu konsensuslistalta ja siirtyy käyttäjän kokoonpanoon.
+  * Käyttäjän valitessa pelaajan, pelaaja poistuu konsensuslistalta ja siirtyy käyttäjän kokoonpanoon. - OK
     
 ### Varaustilaisuuden päätyttyä
 
-Ohjelma näyttää käyttäjälle hänen valitsemansa kokoonapanon.
+Ohjelma näyttää käyttäjälle hänen valitsemansa kokoonapanon. - OK
 
 ## Jatkokehitys ideoita
 
