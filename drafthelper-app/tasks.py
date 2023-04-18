@@ -2,11 +2,11 @@ from invoke import task
 
 @task
 def start(c):
-	c.run('python3 src/interface.py', pty=True)
+	c.run('python3 src/index.py', pty=True)
 
 @task
 def test(c):
-	c.run('poetry run pytest src', pty=True)
+	c.run('pytest src', pty=True)
 
 @task
 def coverage(c):
@@ -15,3 +15,7 @@ def coverage(c):
 @task(coverage)
 def coverage_report(c):
 	c.run('coverage html')
+
+@task
+def lint(c):
+	c.run('pylint src', pty=True)

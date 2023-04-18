@@ -7,3 +7,7 @@
 - Toisen varausvuorolla arvotaan automaattisesti joku top-5 pelaajista bottikokoonpanoon
 - Roster luokka luotu pitämään kirjaa valituista pelaajista
 
+## Viikko 4
+- Ohjelma tarjoaa vain pelaajia, joiden pelipaikkoja ei ole täytetty
+- Botin valintaa painotettu kohti viiden parhaan kärkipäätä
+
