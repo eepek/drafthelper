@@ -2,7 +2,7 @@
 
 ## Luokkakaavio
 
-![Luokkakaavio](./kuvat/class_diagram.png)
+![Luokkakaavio](../kuvat/class_diagram.png)
 
 ## Sovelluslogiikka
 
