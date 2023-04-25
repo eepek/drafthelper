@@ -14,3 +14,5 @@
 ## Viikko 5
 - Graafisen käyttöliittymän ensimmäinen versio
     - Draft tapahtuma toimii osittain graafisessa versiossa, mutta kaikki tekstikäyttöliittymän ominaisuudet eivät vielä käytössä
+- Muutettu luokkien toimintaa graafisessa käyttöliittymässä
+    - Eriytetty käyttöliittymää ja sovelluslogiikka. Interface luokka hoitaa pääasiallisen käyttöliittymä toiminnan.
