@@ -1,9 +1,9 @@
 
-# Vaatimusmäärittely    
-    
+# Vaatimusmäärittely
+
 ## Sovelluksen tarkoitus
 
-DrafHelper on apuväline NFL fantasy liigan varaustapahtumaan. Ohjelma tarjoaa omalla valintavuorolla FantasyPros sivuston konsensus arvioon perustuen kolme parasta pelaajavaihtoehtoa Full-PPR pistetytyksellä olevaan liigaan. DrafHelper ottaa huomioon jo täytetyt pelipaikat ja tarjoaa vain pelaajia pelipaikoille, jotka ovat täyttämättä. 
+DrafHelper on apuväline NFL fantasy liigan varaustapahtumaan. Ohjelma tarjoaa omalla valintavuorolla FantasyPros sivuston konsensus arvioon perustuen kolme parasta pelaajavaihtoehtoa Full-PPR pistetytyksellä olevaan liigaan. DrafHelper ottaa huomioon jo täytetyt pelipaikat ja tarjoaa vain pelaajia pelipaikoille, jotka ovat täyttämättä.
 
 ## Käyttäjä
 
@@ -13,29 +13,29 @@ Ohjelmassa on vain yksi käyttäjä tyyppi, peruskäyttäjä, joka pystyy säät
 
 ### Ohjelman käynnistyttyä
 
-Ohjelma avautuu asetus näkymään, jossa käyttäjä pääsee valitsemaan liigan koon ja oman varausvuoron. - OK
+Ohjelma avautuu asetus näkymään, jossa käyttäjä pääsee valitsemaan liigan koon ja oman varausvuoron. - OK - GUI & TXT
 
 ### Varausnäkymä
 
 - Kun ei ole käyttäjän varausvuoro:
 
   ~~Ohjelma näyttää konsensuslistan 10 korkeimmalle sijoitettua pelaajaa, joita ei ole vielä valittu, sekä hakuruudun.~~
-    
+
   ~~Käyttäjä poistaa valitun pelaajan listalta, joko painamalla valitun pelaajan nimeä, tai hakemalla valitun pelaajan.~~
 
-  * Ohjelma valitsee satunnaisen pelaajan rankinglistan viiden parhaan joukosta simuloiden aitoa varaustilaisuutta. - OK
-    
+  * Ohjelma valitsee satunnaisen pelaajan rankinglistan viiden parhaan joukosta simuloiden aitoa varaustilaisuutta. - OK - GUI & TXT
+
 - Käyttäjän varausvuoro:
 
-  * Ohjelma näyttää 5 parhaimmaksi arvioitua pelaajaa, ottaen huomioon käyttäjän jo täytetyt pelipaikat. - OK
-    
-  * Ohjelma tarjoaa myös hakuruudun, jolloin käyttäjä voi valita kokoonpanoonsa pelaajan, joka ei ole näkyvissä. - OK
-    
-  * Käyttäjän valitessa pelaajan, pelaaja poistuu konsensuslistalta ja siirtyy käyttäjän kokoonpanoon. - OK
-    
+  * Ohjelma näyttää 3 parhaimmaksi arvioitua pelaajaa, ottaen huomioon käyttäjän jo täytetyt pelipaikat. - OK - GUI & TXT
+
+  * Ohjelma tarjoaa myös hakuruudun, jolloin käyttäjä voi valita kokoonpanoonsa pelaajan, joka ei ole näkyvissä. - OK - TXT
+
+  * Käyttäjän valitessa pelaajan, pelaaja poistuu konsensuslistalta ja siirtyy käyttäjän kokoonpanoon. - OK - GUI & TXT
+
 ### Varaustilaisuuden päätyttyä
 
-Ohjelma näyttää käyttäjälle hänen valitsemansa kokoonapanon. - OK
+Ohjelma näyttää käyttäjälle hänen valitsemansa kokoonapanon. - OK - TXT
 
 ## Jatkokehitys ideoita
 
@@ -44,7 +44,7 @@ Ohjelma näyttää käyttäjälle hänen valitsemansa kokoonapanon. - OK
 - Ohjelma näyttää tarjottujen pelaajien kohdalla:
 
   * Viime vuonna tehdyt aktuaalit fantasy pisteet
-  
+
   * Edellisvuoden aktuaalin varausnumeron (ADP) ja konsensuarvion eron (ECR)
-  
+
   * Pelaajan kuvan ja joukkueen logon

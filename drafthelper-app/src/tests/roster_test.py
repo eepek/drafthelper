@@ -3,9 +3,11 @@ from services.roster import Roster
 
 class TestRoster(unittest.TestCase):
     def setUp(self):
-        self.roster = Roster(10,2)
+        self.roster = Roster(10,2,'TestTeam')
+        self.roster.initialize()
 
     def test_creates_empty_rosters(self):
+
         return self.assertEqual(len(self.roster.teams),10) and self.assertEqual(len(self.roster.position_counter),10)
 
     def test_set_user_team_name_works(self):

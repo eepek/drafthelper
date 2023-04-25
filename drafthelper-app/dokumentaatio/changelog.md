@@ -11,3 +11,6 @@
 - Ohjelma tarjoaa vain pelaajia, joiden pelipaikkoja ei ole täytetty
 - Botin valintaa painotettu kohti viiden parhaan kärkipäätä
 
+## Viikko 5
+- Graafisen käyttöliittymän ensimmäinen versio
+    - Draft tapahtuma toimii osittain graafisessa versiossa, mutta kaikki tekstikäyttöliittymän ominaisuudet eivät vielä käytössä

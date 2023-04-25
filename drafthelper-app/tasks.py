@@ -5,6 +5,10 @@ def start(c):
 	c.run('python3 src/index.py', pty=True)
 
 @task
+def start_txt(c):
+	c.run('python3 src/index_txt.py', pty=True)
+
+@task
 def test(c):
 	c.run('pytest src', pty=True)
 

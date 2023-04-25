@@ -3,19 +3,14 @@ class Settings:
     def __init__(self):
         self.__league_size = int()
         self.__draft_position = int()
-
-        # Omaa testausta varten
-        if True:
-            self.settings()
-        else:
-            self.__league_size = 10
-            self.__draft_position = 2
+        self.settings()
 
     def settings(self):
         # Määritetään liigan koko
 
         while self.__league_size < 6 or self.__league_size > 14:
             self.__league_size = int(input('Liigan koko (6-14 joukkuetta): '))
+
         # Määritetään draft positio
 
         while True:

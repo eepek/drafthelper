@@ -1,13 +1,22 @@
 class Roster:
 
-    def __init__(self, teams: int, user_draft_position: int):
+    def __init__(self, teams: int, user_draft_position: int, user_team_name: str):
         self.teams_amount = teams
         self.user_draft_position = user_draft_position
         self.bench_counter = 1
+
         # Oman joukkueeen nimi
-        self.user_team = 'YourOwnTeam'
-        # Kaikki joukkueet
+        self.user_team = user_team_name
+
+        #initialize
         self.teams = {}
+        self.positions = {}
+        self.position_amounts = {}
+        self.position_counter = {}
+
+
+    def initialize(self):
+        # Kaikki joukkueet
         # Tämä erillisenä, jotta positioiden muokkaus toiminnallisuus helpompi myöhemmin
         self.positions = ['QB', 'RB1', 'RB2',
                           'WR1', 'WR2', 'WR3', 'TE', 'K', 'DS']

@@ -1,22 +1,27 @@
 from random import choices
 from services.roster import Roster
 from services.consensusranking import ConsensusRanking
-from services.settings import Settings
+
 
 
 class Draft:
 
-    def __init__(self, settings: Settings, roster: Roster, consensusranking: ConsensusRanking):
+    def __init__(self, roster: Roster, consensusranking: ConsensusRanking):
         self.roster = roster
         self.consensusranking = consensusranking
 
-        self.settings = settings
 
-        self.league_size = self.settings.get_league_size()
-        self.draft_position = self.settings.get_draft_position()
+        #Tekstikäyttöliittymää varten
+        self.league_size = int
+        self.draft_position = int
+
+    def set_league_size(self, size: int):
+        self.league_size = size
+
+    def set_draft_positon(self, position:int):
+        self.draft_position = position
+
         self.consensusranking.generate_consensusranking()
-
-        self.draft_start()
 
     def draft_start(self):
         rounds = self.roster.get_roster_size()
@@ -43,6 +48,11 @@ class Draft:
                 current_round += 1
 
         self.roster.return_all_the_rosters()
+
+    def users_turn_gui(self):
+        user_roster = self.roster.get_user_roster()
+        recommended_players = self.get_recommended_players()
+        return (user_roster, recommended_players)
 
     def users_turn(self):
         recommend_players_df = self.user_turn_info()
@@ -80,12 +90,22 @@ class Draft:
         print(self.roster.check_full_positions(self.roster.user_team))
         full_positions = self.roster.check_full_positions(
             self.roster.user_team)
-        recommend_players_df = self.consensusranking.get_players(5, full_positions)
+        recommend_players_df = self.consensusranking.get_players(3, full_positions)
         if recommend_players_df is False:
             print("Suositeltuja pelaajia ei tarjolla, ole hyvä ja valitse -1")
             return recommend_players_df
         print(recommend_players_df)
         return recommend_players_df
+
+
+    def get_recommended_players(self):
+        full_positions = self.roster.check_full_positions(
+        self.roster.user_team)
+        recommend_players_df = self.consensusranking.get_players(3, full_positions)
+        player_names = recommend_players_df['PLAYER NAME'].to_list()
+        player_positions = recommend_players_df['POS'].to_list()
+        player_teams = recommend_players_df['TEAM'].to_list()
+        return [player_names, player_teams, player_positions]
 
     def choice_by_name(self):
         while True:

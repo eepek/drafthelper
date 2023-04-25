@@ -11,4 +11,7 @@
 |14.4|4|Tarjotut pelaajat vain pelipaikoilta, joita ei täytetty. Kansiorakennetta muutettu. Botin tekemää valintaa paranneltu.|
 |17.4|4|Pylint otettu käyttöön ja korjattu sen virheilmoituksia. Lisätty testejä consensusranking luokalle|
 |18.4|5|Korjattu esiintulleita bugeja ja kirjoitettu lisää testejä consensusranking ja roster luokille|
-|yht|28|
+|22.4|4|TKinterin opettelua
+|24.4|5|Graafisen käyttöliittymän rakentamista, settings_view osio.
+|25.4|6|GUI:n jatkaminen, draft_view.
+|yht|43|
