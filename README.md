@@ -25,7 +25,11 @@ Ohjelma on Helsingin Yliopiston Tietojenkäsittelytieteen Ohjelmistotekniikan ku
 
 [Arkkitehtuurikuvaus](https://github.com/eepek/drafthelper/blob/main/drafthelper-app/dokumentaatio/arkkitehtuuri.md)
 
-[Release]()
+[Release](https://github.com/eepek/drafthelper/releases/tag/viikko5)
+
+## Ohjelman asennus, käyttö ja testaus
+
+Kaikki seuraavat komennot tulee suorittaa drafthelper-app kansiossa
 
 ### Asennus ja suoritus:
 
