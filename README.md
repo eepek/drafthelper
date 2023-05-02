@@ -4,7 +4,7 @@ Draft helper on ohjelma, jonka tarkoitus on auttaa käyttäjää harjoittelemaan
 
 Ohjelma on Helsingin Yliopiston Tietojenkäsittelytieteen Ohjelmistotekniikan kurssin harjoitustyö.
 
-## Toiminnallisuudet (25.4.2023)
+## Toiminnallisuudet (2.5.2023)
 - Ohjelmasta on sekä tekstipohjainen että graafinen käyttöliittymä
 
 - Tekstipohjainen versio sisältää kaikki vaatimusmäärittelyn mukaiset toiminnot.
@@ -12,8 +12,6 @@ Ohjelma on Helsingin Yliopiston Tietojenkäsittelytieteen Ohjelmistotekniikan ku
 - Graafinen käyttöliittymä on vielä kehitysvaiheessa ja tarjoaa vain osittaiset ominaisuudet.
 
 - Tekstikäyttöliittymässä pelaaja voi omalla vuorollaan valita ehdotetun pelaajan, tai hakea nimellä muuta pelaajaa. Graafisessa käyttöliittymässä on tällä hetkellä vain mahdollisuus valita ehdotetuista vaihtoehdoista.
-
-- Graafinen käyttöliittymä ei näytä varaustilaisuuden päätyttyä omaa kokoonpanoa, mutta ominaisuus löytyy tekstipohjaisesta versiosta.
 
 ## Dokumentaatio:
 
@@ -25,7 +23,9 @@ Ohjelma on Helsingin Yliopiston Tietojenkäsittelytieteen Ohjelmistotekniikan ku
 
 [Arkkitehtuurikuvaus](https://github.com/eepek/drafthelper/blob/main/drafthelper-app/dokumentaatio/arkkitehtuuri.md)
 
-[Release](https://github.com/eepek/drafthelper/releases/tag/viikko5)
+[Käyttöohje](https://github.com/eepek/drafthelper/blob/main/drafthelper-app/dokumentaatio/kayttoohje.md)
+
+[Release](https://github.com/eepek/drafthelper/releases/tag/Viikko6)
 
 ## Ohjelman asennus, käyttö ja testaus
 
