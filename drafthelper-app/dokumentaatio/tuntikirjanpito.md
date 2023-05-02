@@ -14,4 +14,6 @@
 |22.4|4|TKinterin opettelua
 |24.4|5|Graafisen käyttöliittymän rakentamista, settings_view osio.
 |25.4|6|GUI:n jatkaminen, draft_view.
-|yht|43|
+|28.4|5|GUI:n kehitystyön jatkaminen ja ominaisuuksien lisäys, end_view osio.
+|2.5|4|Docstring dokumentaatio ja muutamia testejä lisätty
+|yht|52|

@@ -3,6 +3,7 @@ from interface.settings_view import SettingsView
 from interface.draft_view import DraftView
 from interface.end_view import EndView
 from services.interface import App
+# from interface.initialize import App
 
 class UI:
     def __init__(self, root: Tk):
@@ -19,3 +20,17 @@ class UI:
 
     def end_of_draft_view(self):
         EndView(self._root, self._interface)
+
+    
+    
+
+
+
+
+# if __name__ == "__main__":
+#     window = Tk()
+#     window.title('Draft Helper - Fantasy draft simulator')
+
+#     ui = UI(window)
+#     ui.start()
+#     window.mainloop()

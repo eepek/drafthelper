@@ -5,8 +5,24 @@ from services.consensusranking import ConsensusRanking
 
 
 class Draft:
+    """"Class that contains functions that are needed during the draft event
+    and are used to pick players or retrieve recommended players for user.
+    Contains also the user interface functionality that is used in the text-based user interface.
+
+    Attributes:
+        roster: Roster object that has access to all the team rosters
+        consensusranking: Consensusranking object, access to consensusranking and it's methods
+        league_size: number of teams in the league, used solely by text-based interface
+        draft_position: users draft position, used solely by text-based interface"""
 
     def __init__(self, roster: Roster, consensusranking: ConsensusRanking):
+        """Class constructor that creates new Draft class
+
+        Args:
+            roster: Roster object relayed by App class
+            consensusranking: Consensusranking object relayed by App class
+        """
+
         self.roster = roster
         self.consensusranking = consensusranking
 
@@ -16,14 +32,28 @@ class Draft:
         self.draft_position = int
 
     def set_league_size(self, size: int):
+        """Sets the league size to number value specified by user. Only used by text UI
+
+        Args:
+            size: Number of teams participating in draft event as int
+        """
         self.league_size = size
 
     def set_draft_positon(self, position:int):
+        """Sets the users draft position to value specified by user. Only used by text UI
+
+        Args:
+            position: Users teams draft position as int"""
         self.draft_position = position
 
         self.consensusranking.generate_consensusranking()
 
     def draft_start(self):
+        """Method that runs the text-based interface draft event.
+        Runs until draft is completed. With each pick a new player is chosen
+        to current team picking. On each pick calls appropriate methods
+        depending if it is users or bots turn to choose.
+        """
         rounds = self.roster.get_roster_size()
 
         current_round = 1
@@ -50,11 +80,21 @@ class Draft:
         self.roster.return_all_the_rosters()
 
     def users_turn_gui(self):
+        """Gets recommended players to be shown to user on their turn
+        when using the graphical user interface.
+
+        Returns:
+            Tuple containing users current roster and the recommended players"""
         user_roster = self.roster.get_user_roster()
         recommended_players = self.get_recommended_players()
         return (user_roster, recommended_players)
 
     def users_turn(self):
+        """Handles the users turn during text-based draft event. Gets recommended players,
+        takes users choice and returns it. Only used in text based UI.
+        Returns:
+            Player chosen by user as tuple with player name and position
+        """
         recommend_players_df = self.user_turn_info()
         while True:
             print()
@@ -81,6 +121,12 @@ class Draft:
                 return chosen_player
 
     def user_turn_info(self):
+        """Shows the information shown on users every turn. Shows users current roster.
+        Gets recommended players form Consensusranking object and prints the player
+        information for user. Only used in text-based UI.
+
+        Returns:
+            Pandas dataframe containing recommended players"""
         print()
         print('Sinun varausvuorosi!')
         print()
@@ -99,6 +145,12 @@ class Draft:
 
 
     def get_recommended_players(self):
+        """Gets recommended players for the users, taking into account the positions
+        that have already been filled in users roster.
+
+        Returns:
+            Returns list containing lists for player names, teams and positions
+        """
         full_positions = self.roster.check_full_positions(
         self.roster.user_team)
         recommend_players_df = self.consensusranking.get_players(3, full_positions)
@@ -119,6 +171,12 @@ class Draft:
             print(f'Pelaajaa {chosen_player} ei löytynyt')
 
     def choice_by_id(self, name):
+        """Checks that picked player is actually a real player and still availeable for a pick.
+        Relays information about player to Consensusranking
+
+        Returns:
+            If player is real and eligible returns tuple with players name and position.
+            Otherwise returns False."""
         if self.consensusranking.is_a_real_player(name):
             print(f'{name} valittu')
             return (name, self.consensusranking.take_a_player_by_name(name))
@@ -126,7 +184,16 @@ class Draft:
         return False
 
     def bot_turn(self, team_name: str):
-        # Valitse random top 5 valinta ihan vaan toiminnalisuuden testauksen vuoksi
+        """Method used during bots turn. Gets bot teams name and
+        chooses a random player from top 5 players taking into account
+        positions that have been filled in the bot teams roster.
+
+        Args:
+            team_name: String value for team's name in question
+
+        Returns:
+            Tuple containing chosen players name and position"""
+
         filled_roster_spots = self.roster.check_full_positions(team_name)
         players_dataframe = self.consensusranking.get_players(
             5, filled_roster_spots)

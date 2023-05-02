@@ -14,3 +14,7 @@
 ## Viikko 5
 - Graafisen käyttöliittymän ensimmäinen versio
     - Draft tapahtuma toimii osittain graafisessa versiossa, mutta kaikki tekstikäyttöliittymän ominaisuudet eivät vielä käytössä
+
+## Viikko 6
+- Graafista käyttöliittymää jatkokehitetty ja lisätty suurimmaksi osaksi samat toiminnallisuudet kuin tekstikäyttöliittymässä
+    - Draft tapahtuma toimii, mutta pelaaja ei pysty vielä hakemaan nimellä

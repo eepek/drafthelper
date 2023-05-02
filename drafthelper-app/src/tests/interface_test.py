@@ -8,6 +8,8 @@ from services.settings import Settings
 class TestRoster(unittest.TestCase):
     def setUp(self):
         self.interface = App()
+        self.interface.roster = Roster(10,5,'Team')
+        self.interface.consensusranking = ConsensusRanking()
 
     def test_is_it_users_turn_wrong_postion(self):
         self.interface.set_draft_position(5)
@@ -19,3 +21,31 @@ class TestRoster(unittest.TestCase):
         self.interface.rolling_draft_position = 7
         self.interface.increase_counters()
         return self.assertEqual(1, self.interface.rolling_draft_position)
+
+    #Test getters and setters
+
+    def test_set_draft_postion(self):
+        self.interface.set_draft_position(1)
+        return self.assertTrue(self.interface.is_it_users_turn())
+
+    def test_get_draft_position(self):
+        return self.assertEqual(1, self.interface.get_draft_position())
+
+    def test_get_current_round(self):
+        return self.assertEqual(1, self.interface.get_current_round())
+
+    def test_set_league_size(self):
+        self.interface.set_league_size(10)
+        return self.assertEqual(10, self.interface.get_league_size())
+
+    def test_get_league_size(self):
+        self.interface.set_league_size(5)
+        return self.assertNotEqual(10, self.interface.get_league_size())
+
+    def test_set_team_name(self):
+        self.interface.set_team_name('TestTeam')
+        for name in self.interface.get_team_names():
+            if self.assertEqual('TestTeam', name):
+                return True
+
+        return False
