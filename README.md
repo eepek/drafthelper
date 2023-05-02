@@ -25,7 +25,7 @@ Ohjelma on Helsingin Yliopiston Tietojenkäsittelytieteen Ohjelmistotekniikan ku
 
 [Käyttöohje](https://github.com/eepek/drafthelper/blob/main/drafthelper-app/dokumentaatio/kayttoohje.md)
 
-[Release 25.4](https://github.com/eepek/drafthelper/releases/tag/Viikko5)
+[Release 25.4](https://github.com/eepek/drafthelper/releases/tag/viikko5)
 
 [Release 2.5](https://github.com/eepek/drafthelper/releases/tag/Viikko6)
 
