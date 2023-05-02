@@ -21,6 +21,4 @@
 ## Viikko 6
 - Graafista käyttöliittymää jatkokehitetty ja lisätty suurimmaksi osaksi samat toiminnallisuudet kuin tekstikäyttöliittymässä
     - Draft tapahtuma toimii, mutta pelaaja ei pysty vielä hakemaan nimellä
-=======
 
->>>>>>> 3567bbd3689b9bc09acad3cd60bc2a74786f48da
