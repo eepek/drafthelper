@@ -35,7 +35,7 @@ Ohjelma avautuu asetus näkymään, jossa käyttäjä pääsee valitsemaan liiga
 
 ### Varaustilaisuuden päätyttyä
 
-Ohjelma näyttää käyttäjälle hänen valitsemansa kokoonapanon. - OK - TXT
+Ohjelma näyttää käyttäjälle hänen valitsemansa kokoonapanon. - OK - TXT - GUI
 
 ## Jatkokehitys ideoita
 
