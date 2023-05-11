@@ -107,10 +107,10 @@ class Draft:
 
             if choice in [-1, 0, 1, 2, 3, 4]:
                 if choice == -1:
-                    chosen_player = self.choice_by_name()
+                    chosen_player = self.get_player_from_user()
                 else:
                     player_name = recommend_players_df.at[choice, 'PLAYER NAME']
-                    chosen_player = self.choice_by_id(player_name)
+                    chosen_player = self.choose_player(player_name)
                 self.roster.add_to_roster(
                     self.roster.user_team, chosen_player[0], chosen_player[1])
 
@@ -143,6 +143,16 @@ class Draft:
         print(recommend_players_df)
         return recommend_players_df
 
+    def get_player_from_user(self):
+        while True:
+            player = input('Anna pelaajan nimi: ')
+            chosen_player = self.choose_player(player)
+            if chosen_player is None:
+                print(f'Pelaajaa {chosen_player} ei löytynyt')
+                continue
+            print(f'{chosen_player} valittu')
+            return chosen_player
+
 
     def get_recommended_players(self):
         """Gets recommended players for the users, taking into account the positions
@@ -159,29 +169,26 @@ class Draft:
         player_teams = recommend_players_df['TEAM'].to_list()
         return [player_names, player_teams, player_positions]
 
-    def choice_by_name(self):
-        while True:
-            chosen_player = input('Anna pelaajan nimi: ')
-            if self.consensusranking.is_a_real_player(chosen_player):
-                pos = self.consensusranking.take_a_player_by_name(chosen_player)
-                print(f'{chosen_player} valittu')
-                chosen_player = (chosen_player, pos)
-                return chosen_player
+    def choose_player(self, chosen_player: str):
 
-            print(f'Pelaajaa {chosen_player} ei löytynyt')
+        name_and_position = self.consensusranking.take_a_player_by_name(chosen_player.lower())
+        if name_and_position is False:
+            return None
+        return name_and_position
 
-    def choice_by_id(self, name):
-        """Checks that picked player is actually a real player and still availeable for a pick.
-        Relays information about player to Consensusranking
 
-        Returns:
-            If player is real and eligible returns tuple with players name and position.
-            Otherwise returns False."""
-        if self.consensusranking.is_a_real_player(name):
-            print(f'{name} valittu')
-            return (name, self.consensusranking.take_a_player_by_name(name))
+    # def choose_player(self, name):
+    #     """Checks that picked player is actually a real player and still availeable for a pick.
+    #     Relays information about player to Consensusranking
 
-        return False
+    #     Returns:
+    #         If player is real and eligible returns tuple with players name and position.
+    #         Otherwise returns False."""
+    #     if self.consensusranking.is_a_real_player(name):
+    #         print(f'{name} valittu')
+    #         return (name, self.consensusranking.take_a_player_by_name(name))
+
+    #     return False
 
     def bot_turn(self, team_name: str):
         """Method used during bots turn. Gets bot teams name and
@@ -205,10 +212,10 @@ class Draft:
 
         # Haetaan pelajaa ja lisätään rosteriin
         chosen_player_name = players_dataframe.at[choice_id, 'PLAYER NAME']
-        chosen_player_position = self.consensusranking.take_a_player_by_name(
-            chosen_player_name)
+        chosen_player = self.consensusranking.take_a_player_by_name(
+            chosen_player_name.lower())
         self.roster.add_to_roster(
-            team_name, chosen_player_name, chosen_player_position)
-        print(f'{team_name} valitsi pelaajan: {chosen_player_name}')
+            team_name, chosen_player[0], chosen_player[1])
+        print(f'{team_name} valitsi pelaajan: {chosen_player[0]}')
 
-        return (chosen_player_name, chosen_player_position)
+        return chosen_player

@@ -1,3 +1,6 @@
+import datetime
+import os
+
 class Roster:
     """Class that keeps record of all the players selected by teams and which
     roster spots have been filled in each team
@@ -157,3 +160,16 @@ class Roster:
             print('----------------')
             for position, players in lineup.items():
                 print(f' {position}: {players}')
+
+    def save_final_rosters(self):
+        current_date = datetime.datetime.now().strftime("%Y-%m-%d-%H-%M")
+        self.__directory = os.path.dirname(__file__)
+        self.__file = os.path.join(self.__directory, '..', 'save_files/')
+        with open(self.__file + current_date +'.txt', 'w') as save_file:
+            for team, roster in self.teams.items():
+                save_file.write(f'--------------- \n')
+                save_file.write(f'{team} \n')
+                save_file.write(f'--------------- \n')
+                for position, player in roster.items():
+                    save_file.write(f'{position}:  {player} \n')
+        return self.__file + current_date + '.txt'

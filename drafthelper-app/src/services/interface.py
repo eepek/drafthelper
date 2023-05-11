@@ -45,6 +45,9 @@ class App:
         self.rolling_draft_position = 1
         self.user_choices = []
 
+        #Tekstikäyttöliittymää varten
+        self.settings = Settings()
+
 
 
     #Graafinen käyttöliittymä
@@ -69,8 +72,7 @@ class App:
         Calls for Settings class that retrivies setting information
         from user. Relays necessary information to Roster and Draft classes
         and sets up Consensusranking for use.
-        Starts the draft event in Draft class, which is used purely by text-based user interface."""
-        self.settings = Settings() #Pylint errori tiedossa, mutta en vielä keksinyt tapaa korjata
+        """
         self.__league_size = self.settings.get_league_size()
         self.__draft_position = self.settings.get_draft_position()
         self.roster = Roster(self.__league_size, self.__draft_position, self.__team_name)
@@ -189,13 +191,21 @@ class App:
         self.increase_counters()
         return self.user_choices
 
-    def player_chosen_by_user(self, ident: int):
-        """Gets the player chosen by the user from user interface
-        and relays it to Roster class to be saved into users roster."""
-        player = self.user_choices[0][ident]
-        position = self.user_choices[2][ident]
-        self.draft.choice_by_id(player)
-        self.roster.add_to_roster(self.__team_name, player, position)
+    # def player_chosen_by_user(self, ident: int):
+    #     """Gets the player chosen by the user from user interface
+    #     and relays it to Roster class to be saved into users roster."""
+    #     player = self.user_choices[0][ident]
+    #     position = self.user_choices[2][ident]
+    #     self.draft.choose_player(player)
+    #     self.roster.add_to_roster(self.__team_name, player, position)
+
+    def find_player_by_name(self, name: str):
+        """Adds player by name to users roster
+        """
+        chosen = self.draft.choose_player(name)
+        if chosen is not None:
+            self.roster.add_to_roster(self.__team_name, chosen[0], chosen[1])
+        return chosen
 
     def bot_turn(self):
         """Checks the current bot users name. Calls the increase counters
@@ -207,6 +217,11 @@ class App:
         self.increase_counters()
         return self.draft.bot_turn(team)
 
+    #After draft
+    def save_draft(self):
+        return self.roster.save_final_rosters()
 
-if __name__ == '__main__':
-    App()
+
+
+# if __name__ == '__main__':
+#     App()

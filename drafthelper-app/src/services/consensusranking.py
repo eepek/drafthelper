@@ -30,6 +30,9 @@ class ConsensusRanking:
 
         self.__data['POS'] = self.__data['POS'].str[:2]
         self.__player_names = self.__data['PLAYER NAME'].tolist()
+        for i, player in enumerate(self.__player_names):
+            self.__player_names[i] = player.lower()
+        self.__data['LOWERCASE NAME'] = self.__player_names
 
     def get_players(self, amount: int, full_positions: list):
         """Based on given attributes gets players from dataframe and returns
@@ -64,11 +67,10 @@ class ConsensusRanking:
 
         Returns:
             True if given player is elligble for a pick, otherwise False"""
-        for player in self.__player_names:
-            if player.lower() == name.lower():
-                return True
-
-        return False
+        for i,player in enumerate(self.__player_names):
+            if player.startswith(name):
+                return i
+        return -1
 
     def take_a_player_by_name(self, name):
         """Removes selected player from the dataframe and returns the players position
@@ -79,18 +81,27 @@ class ConsensusRanking:
         Returns:
             If player is in dataframe returns the position of the player,
             otherwise refers players name to be checked if it exists"""
-        try:
-            position = self.__data[self.__data['PLAYER NAME']
-                                == name]['POS'].values[0]
-        except IndexError:
-            return self.is_a_real_player(name)
+        index_number = self.is_a_real_player(name)
+        if index_number >= 0:
+            try:
+                position = self.__data.iloc[index_number]['POS']
+                name_correctly_spelt = self.__data.iloc[index_number]['PLAYER NAME']
+            except IndexError:
+                return False
+            self.__data = self.__data.loc[self.__data['LOWERCASE NAME']
+                                          != self.__player_names[index_number]]
+            self.reset_indexes()
+            self.__player_names.pop(index_number)
+            return (name_correctly_spelt, position)
 
-        self.__data = self.__data.loc[self.__data['PLAYER NAME'] != name]
-        self.__player_names.remove(name)
-
-        return position
+        return False
 
     def reset_indexes(self):
         """After removing a player from the dataframe, resets the indexes
         so there are no gaps between indexes"""
         self.__data = self.__data.reset_index(drop=True)
+
+if __name__ == "__main__":
+    cr = ConsensusRanking()
+    cr.generate_consensusranking()
+    print(cr.take_a_player_by_name('Justin Jefferson'.lower()))
