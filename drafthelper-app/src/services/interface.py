@@ -46,7 +46,7 @@ class App:
         self.user_choices = []
 
         #Tekstikäyttöliittymää varten
-        self.settings = Settings()
+        # self.settings = Settings()
 
 
 
@@ -73,6 +73,9 @@ class App:
         from user. Relays necessary information to Roster and Draft classes
         and sets up Consensusranking for use.
         """
+
+        #Tekstikäyttöliittymää varten
+        self.settings = Settings()
         self.__league_size = self.settings.get_league_size()
         self.__draft_position = self.settings.get_draft_position()
         self.roster = Roster(self.__league_size, self.__draft_position, self.__team_name)

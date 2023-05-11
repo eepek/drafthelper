@@ -1,5 +1,5 @@
 from tkinter import Tk
-from interface.ui import UI
+from ui.ui import UI
 #Starts the program with graphical user interface
 window = Tk()
 window.title('Draft Helper - Fantasy draft simulator')
