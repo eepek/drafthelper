@@ -206,6 +206,11 @@ class App:
         team = 'User' + str(self.rolling_draft_position)
         self.increase_counters()
         return self.draft.bot_turn(team)
+    
+    #After draft
+    def save_draft(self):
+        return self.roster.save_final_rosters()
+        
 
 
 if __name__ == '__main__':
