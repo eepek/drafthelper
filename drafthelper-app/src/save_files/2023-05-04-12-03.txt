@@ -1,0 +1,72 @@
+--------------- 
+asreg 
+--------------- 
+QB:  Lamar Jackson 
+RB1:  Austin Ekeler 
+RB2:  Josh Jacobs 
+WR1:  Ja'Marr Chase 
+WR2:  Amon-Ra St. Brown 
+WR3:  Chris Godwin 
+TE:  T.J. Hockenson 
+K:  Harrison Butker 
+DS:  Buffalo Bills 
+--------------- 
+User2 
+--------------- 
+QB:  Jalen Hurts 
+RB1:  Christian McCaffrey 
+RB2:  Nick Chubb 
+WR1:  A.J. Brown 
+WR2:  Stefon Diggs 
+WR3:  Drake London 
+TE:  Mark Andrews 
+K:  Justin Tucker 
+DS:  Baltimore Ravens 
+--------------- 
+User3 
+--------------- 
+QB:  Josh Allen 
+RB1:  Saquon Barkley 
+RB2:  Travis Etienne Jr. 
+WR1:  Cooper Kupp 
+WR2:  Jaylen Waddle 
+WR3:  DeVonta Smith 
+TE:  Darren Waller 
+K:  Daniel Carlson 
+DS:  Dallas Cowboys 
+--------------- 
+User4 
+--------------- 
+QB:  Dak Prescott 
+RB1:  Kenneth Walker III 
+RB2:  Breece Hall 
+WR1:  Justin Jefferson 
+WR2:  Garrett Wilson 
+WR3:  Chris Olave 
+TE:  Dallas Goedert 
+K:  Younghoe Koo 
+DS:  Denver Broncos 
+--------------- 
+User5 
+--------------- 
+QB:  Patrick Mahomes II 
+RB1:  Derrick Henry 
+RB2:  Najee Harris 
+WR1:  Tyreek Hill 
+WR2:  DK Metcalf 
+WR3:  Michael Pittman Jr. 
+TE:  Travis Kelce 
+K:  Ryan Succop 
+DS:  Philadelphia Eagles 
+--------------- 
+User6 
+--------------- 
+QB:  Joe Burrow 
+RB1:  Jonathan Taylor 
+RB2:  Joe Mixon 
+WR1:  Davante Adams 
+WR2:  CeeDee Lamb 
+WR3:  Tee Higgins 
+TE:  Pat Freiermuth 
+K:  Tyler Bass 
+DS:  San Francisco 49ers 

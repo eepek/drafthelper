@@ -31,7 +31,6 @@ class EndView:
         self._header_label.grid(row=0, column=0, padx=20, pady=20)
         self._save_label.grid()
         self._save_button.grid()
-
         #Grid config
         self._root.columnconfigure(0, weight=1)
         self._root.rowconfigure(0, weight=1)
@@ -54,7 +53,6 @@ class EndView:
         self._save_label.grid(row=2+roster_size, column=0, columnspan=number_of_teams)
         self._save_button.grid(row=3+roster_size, column=0, columnspan=number_of_teams)
 
-
     def grid_team(self, team:dict, team_name: str, team_number: int):
         team_column = team_number
         team_name_label = ttk.Label(master=self._roster_frame, text=f'{team_name}')
@@ -69,11 +67,9 @@ class EndView:
         filename = self._interface.save_draft()
         self.generate_open_button(filename)
 
-
     def generate_open_button(self, filename: str):
         self._save_label.configure(text='Open the txt file in editor')
         self._save_button.configure(text='Open', command=lambda: self.open_txt_file(filename))
-
 
     def open_txt_file(self, filename: str):
         webbrowser.open(filename)
