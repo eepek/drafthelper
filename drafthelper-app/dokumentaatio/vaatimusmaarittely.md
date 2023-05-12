@@ -3,43 +3,44 @@
 
 ## Sovelluksen tarkoitus
 
-DrafHelper on apuväline NFL fantasy liigan varaustapahtumaan. Ohjelma tarjoaa omalla valintavuorolla FantasyPros sivuston konsensus arvioon perustuen kolme parasta pelaajavaihtoehtoa Full-PPR pistetytyksellä olevaan liigaan. DrafHelper ottaa huomioon jo täytetyt pelipaikat ja tarjoaa vain pelaajia pelipaikoille, jotka ovat täyttämättä.
+DrafHelper on apuväline NFL fantasy liigan varaustapahtuman harjoitteluun. Ohjelma tarjoaa omalla valintavuorolla FantasyPros sivuston konsensus arvioon perustuen kolme parasta pelaajavaihtoehtoa. Käyttäjä pääsee valitsemaan haluamansa pisteytysformaatin (PPR, Half-PPR, Standard) sekä pelipaikkakohtaiset pelaajamäärät. DrafHelper ottaa huomioon jo täytetyt pelipaikat ja tarjoaa vain pelaajia pelipaikoille, jotka ovat täyttämättä.
 
 ## Käyttäjä
 
 Ohjelmassa on vain yksi käyttäjä tyyppi, peruskäyttäjä, joka pystyy säätämään kaikkia tarjolla olevia asetuksia.
 
-## Toiminnallisuudet ensimmäisessä versiossa
+## Toiminnallisuudet
+
+### Ohjelman käyttöliittymät
+
+Ohjelma on käytettävissä joko englanninkielisen graafisen- tai suomenkielisen tekstikäyttöliittymän kautta. Tekstikäyttöliittymä toimii oletus pisteytyksellä (PPR) ja oletus kokoonpanolla (QB, RB, RB, WR, WR, WR, TE, K, DS).
 
 ### Ohjelman käynnistyttyä
 
-Ohjelma avautuu asetus näkymään, jossa käyttäjä pääsee valitsemaan liigan koon ja oman varausvuoron. - OK - GUI & TXT
+Ohjelman avauduttua käyttäjän on valittava joukkueensa nimi (ei txt-versiossa), joukkueiden määrä sekä oma varausnumeronsa.
+Graafisessa käyttöliittymässä käyttäjä pääseee myös options valikon kautta valitsemaan haluamansa pisteytyksen ja pelipaikkakohtaisest pelaajamäärät.
 
 ### Varausnäkymä
 
-- Kun ei ole käyttäjän varausvuoro:
+- Simuloiden varausvuoron kohdalla
 
-  ~~Ohjelma näyttää konsensuslistan 10 korkeimmalle sijoitettua pelaajaa, joita ei ole vielä valittu, sekä hakuruudun.~~
+  * Ohjelma valitsee satunnaisen pelaajan kunkin simulaatio joukkueen kokoonpanoon rankinglistan viiden parhaan joukosta mallintaen aitoa varaustilaisuutta.
 
-  ~~Käyttäjä poistaa valitun pelaajan listalta, joko painamalla valitun pelaajan nimeä, tai hakemalla valitun pelaajan.~~
+- Käyttäjän ollessa varausvuorossa:
 
-  * Ohjelma valitsee satunnaisen pelaajan rankinglistan viiden parhaan joukosta simuloiden aitoa varaustilaisuutta. - OK - GUI & TXT
+  * Ohjelma näyttää 3 parhaimmaksi arvioitua pelaajaa, ottaen huomioon käyttäjän jo täytetyt pelipaikat.
 
-- Käyttäjän varausvuoro:
-
-  * Ohjelma näyttää 3 parhaimmaksi arvioitua pelaajaa, ottaen huomioon käyttäjän jo täytetyt pelipaikat. - OK - GUI & TXT
-
-  * Ohjelma tarjoaa myös hakuruudun, jolloin käyttäjä voi valita kokoonpanoonsa pelaajan, joka ei ole näkyvissä. - OK - TXT
-
-  * Käyttäjän valitessa pelaajan, pelaaja poistuu konsensuslistalta ja siirtyy käyttäjän kokoonpanoon. - OK - GUI & TXT
+  * Ohjelma tarjoaa hakuruudun, jolloin käyttäjä voi valita kokoonpanoonsa pelaajan, joka ei ole näkyvissä. 
+  
+  * Pelaaja lisätään käyttäjän joukkueen kokoonpanoon
 
 ### Varaustilaisuuden päätyttyä
 
-Ohjelma näyttää käyttäjälle hänen valitsemansa kokoonapanon. - OK - TXT - GUI
+- Ohjelma näyttää kaikkien joukkueiden kokoonpanot
+- Tarjolla on mahdollisuus tallentaa varaustilaisuuden joukkueiden kokoonpanot tekstitiedostoon
+- Tallennettu tekstitiedosto on mahdollista avata suoraan ohjelmasta nappia painamalla
 
 ## Jatkokehitys ideoita
-
-- Käyttäjä voi valita oman liigansa pelipaikat ja pistetytystyypin
 
 - Ohjelma näyttää tarjottujen pelaajien kohdalla:
 
