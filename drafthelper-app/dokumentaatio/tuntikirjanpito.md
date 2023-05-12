@@ -16,4 +16,7 @@
 |25.4|6|GUI:n jatkaminen, draft_view.
 |28.4|5|GUI:n kehitystyön jatkaminen ja ominaisuuksien lisäys, end_view osio.
 |2.5|4|Docstring dokumentaatio ja muutamia testejä lisätty
-|yht|52|
+|3.5|5|Lisätty pelaajan hakeminen GUI näkymässä. Selkeytetty funktioita ja yhdistety samankaltaisia|
+|4.5|2|Siirretty tkinterin tyylit omaan tiedostoonsa|
+|11.5|7|Korjattu uusi bugi. Lisätty asetusvaihtoehtoja.|
+|yht|66|

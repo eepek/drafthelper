@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+from repositories.ranking_loader import ConsensusrankingRepository
 
 
 class ConsensusRanking:
@@ -10,29 +11,34 @@ class ConsensusRanking:
     Attributes:
         data: Initial ranking of players as a dataframe
         player_names: list of players names
-        directory: current working directory, used to load the CSV file
-        file: path for CSV file
+        file_name: File name for chosen scoring format, default is PPR
     """
     def __init__(self):
-        """Creates a new consensusranking"""
+        """Constructs a new consensusranking class"""
         self.__data = pd.DataFrame()
         self.__player_names = []
-        self.__directory = os.path.dirname(__file__)
-        self.__file = os.path.join(self.__directory, '..', 'csv/rankings.csv')
+        self.__filename = 'PPR.csv'
 
     def generate_consensusranking(self):
-        """Reads the given CSV file and saves it as a pandas dataframe.
-        This format is used for future features, to easily access extra
+        """Reads the given CSV file via ConsensusrankingRepository and saves it
+        as a pandas dataframe. This format is used for future features, to easily access extra
         information that can be given to the user
         """
-        self.__data = pd.read_csv(self.__file)
-        self.__data = self.__data.drop('TIERS', axis=1)
-
-        self.__data['POS'] = self.__data['POS'].str[:2]
+        new_ranking_data = ConsensusrankingRepository(self.__filename)
+        self.__data = new_ranking_data.get_dataframe()
         self.__player_names = self.__data['PLAYER NAME'].tolist()
         for i, player in enumerate(self.__player_names):
             self.__player_names[i] = player.lower()
         self.__data['LOWERCASE NAME'] = self.__player_names
+
+    def set_filename(self, scoring_format: str):
+        """Sets the filename for the file used for consensusranking according
+        to user chosen scoring format. Defaul value is PPR.csv
+
+        Args:
+            scoring_format (str): User chosen scoring format as str
+        """
+        self.__filename = scoring_format + '.csv'
 
     def get_players(self, amount: int, full_positions: list):
         """Based on given attributes gets players from dataframe and returns
@@ -100,8 +106,3 @@ class ConsensusRanking:
         """After removing a player from the dataframe, resets the indexes
         so there are no gaps between indexes"""
         self.__data = self.__data.reset_index(drop=True)
-
-if __name__ == "__main__":
-    cr = ConsensusRanking()
-    cr.generate_consensusranking()
-    print(cr.take_a_player_by_name('Justin Jefferson'.lower()))

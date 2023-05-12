@@ -1,6 +1,6 @@
 from random import choices
-from services.roster import Roster
-from services.consensusranking import ConsensusRanking
+from entities.roster import Roster
+from entities.consensusranking import ConsensusRanking
 
 
 
@@ -144,6 +144,11 @@ class Draft:
         return recommend_players_df
 
     def get_player_from_user(self):
+        """Used in text interface to get name of the player chosen from the user
+
+        Returns:
+            tuple: (players name, playing position)
+        """
         while True:
             player = input('Anna pelaajan nimi: ')
             chosen_player = self.choose_player(player)
@@ -170,25 +175,21 @@ class Draft:
         return [player_names, player_teams, player_positions]
 
     def choose_player(self, chosen_player: str):
+        """Passes chosen players name to consensusranking method that finds the player
+        and returns player name and position, if valid request. If player is not found
+        or is already taken to a roster, the consensusranking method returns False and
+        None is returned
 
+        Args:
+            chosen_player (str): Name of the player that has been chosen
+
+        Returns:
+            tuple: (Player name, playing position)
+        """
         name_and_position = self.consensusranking.take_a_player_by_name(chosen_player.lower())
         if name_and_position is False:
             return None
         return name_and_position
-
-
-    # def choose_player(self, name):
-    #     """Checks that picked player is actually a real player and still availeable for a pick.
-    #     Relays information about player to Consensusranking
-
-    #     Returns:
-    #         If player is real and eligible returns tuple with players name and position.
-    #         Otherwise returns False."""
-    #     if self.consensusranking.is_a_real_player(name):
-    #         print(f'{name} valittu')
-    #         return (name, self.consensusranking.take_a_player_by_name(name))
-
-    #     return False
 
     def bot_turn(self, team_name: str):
         """Method used during bots turn. Gets bot teams name and
@@ -199,7 +200,8 @@ class Draft:
             team_name: String value for team's name in question
 
         Returns:
-            Tuple containing chosen players name and position"""
+            tuple: (Player name, playing position)
+        """
 
         filled_roster_spots = self.roster.check_full_positions(team_name)
         players_dataframe = self.consensusranking.get_players(

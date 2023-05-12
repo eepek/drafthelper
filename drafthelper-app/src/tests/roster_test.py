@@ -1,5 +1,5 @@
 import unittest
-from services.roster import Roster
+from entities.roster import Roster
 
 class TestRoster(unittest.TestCase):
     def setUp(self):

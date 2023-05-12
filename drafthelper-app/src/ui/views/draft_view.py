@@ -1,10 +1,34 @@
 from tkinter import Tk, ttk, messagebox
 from services.interface import App
-from interface.styles import Style
+from ui.styling.styles import Style
 
 class DraftView:
+    """Class that contains all the necessary widgets to display and handle the draft event.
+
+    Attributes:
+        root (Tk): Main Tk window
+        end_of_draft (function): Function used to change the view to end of draft view
+        interface (App): Main interface working between UI and other classes
+        startstop (Bool): Timer used to refresh the view
+        current_draft_position (Int): Position that has the draf turn at that moment
+        bot_labels (list): Contains Labels for computer made player choices
+        choose_buttons (list): Contains tkk buttons displayed to user
+        user_labels (list): Contains labels that display players to user
+        current_row (int): Current round of draft, used to put player labels on right row
+        roster_label (list): Contains labels for displaying user roster
+        roster_colors (list): Contains colors for label backgrounds for different positions
+
+    """
 
     def __init__(self, root: Tk, interface: App, end_of_draft):
+        """Constructs a new DraftView class and calls initialize method. If not users turn
+        refreshes view every 1 second.
+
+        Args:
+            root (Tk): Main Tk window
+            interface (App): App class main interface working between UI and other classes
+            end_of_draft (_type_): Function used to change the view to end of draft view
+        """
         self.style = Style()
         self._root = root
         self._end_of_draft = end_of_draft
@@ -19,9 +43,13 @@ class DraftView:
         self._roster_colors = {'QB': '#A8E6CF', 'RB': '#DCEDC1', 'WR': '#FFD3B6', 'TE': '#FFAAA5', 'K': '#BFCCB5', 'DS': '#DBDFEA'}
         self.initialize()
         if self.__startstop:
-            self._root.after(10, self.check_draft_position)
+            self._root.after(1000, self.check_draft_position)
 
     def initialize(self):
+        """Method used for creating and gridding widgets and configuring them.
+        Creates main frame, static labels and calls method for creating buttons.
+        Grids widgets either directly or calls methods to do it.
+        """
         #Frames
         self._main_frame = ttk.Frame(master=self._root, style='self.style.main.TFrame')
         self._main_frame.grid(row=0, column=0, sticky='NSWE')
@@ -75,6 +103,10 @@ class DraftView:
 
 
     def check_draft_position(self):
+        """Method that contains main functionality needed for the draft
+        event to flow forward. Checks which turn is it and calls method
+        based on the current position.
+        """
         if self._interface.is_draft_done:
             self._main_frame.destroy()
             self._end_of_draft()
@@ -90,9 +122,11 @@ class DraftView:
         else:
             self._header_label.config(text="Waiting for your next turn!")
             self.get_bot_choice()
-            self._root.after(10, self.check_draft_position)
+            self._root.after(1000, self.check_draft_position)
 
     def grid_labels(self):
+        """Creates team name labels and grids them
+        """
         team_names = [ttk.Label(master=self._draft_frame,
                                 text=f'{team_name}', style='self.style.draftFplayer.TLabel')
                                 for team_name in self._interface.get_team_names()]
@@ -100,6 +134,14 @@ class DraftView:
             team.grid(row=1, column=1+i)
 
     def grid_chosen_player(self, name: str, position: str):
+        """After player is chosen, creates label for player and grids it
+        in correct position. Deletes labels for users recommended players
+        and generates new choose buttons.
+
+        Args:
+            name (str): Player name
+            position (str): Players playing position
+        """
         player_label = ttk.Label(master=self._draft_frame,
                                  text=f'{name}\n{position}',
                                  style='self.style.draftFplayer.TLabel')
@@ -117,15 +159,27 @@ class DraftView:
         self.delete_user_labels()
         self.generate_choose_buttons()
         self.__startstop = True
-        self._root.after(10, self.check_draft_position)
+        self._root.after(1000, self.check_draft_position)
 
 
     def player_chosen(self, id_number: int):
+        """If player is chosen by button click, receives buttons id and
+        passes player name to App interface, receiving players name and position
+        after pick is checked to be eligible and added to roster. Calls for
+        player to be labeled and gridded.
+
+        Args:
+            id_number (int): Number of button that was clicked
+        """
         player_name = self._player_names[id_number]
         chosen = self._interface.find_player_by_name(player_name)
         self.grid_chosen_player(chosen[0],chosen[1])
 
     def find_player(self):
+        """Method used for user to enter players name directly into entry box.
+        Needs at least 7 letters to avoid confusion of names. Displays error
+        messages accordingly. Calls for player to be labeled and gridded
+        """
         player = self._player_name_entry.get()
         if len(player) < 7:
             messagebox.showinfo('Name too short', 'Enter first and last name')
@@ -137,6 +191,9 @@ class DraftView:
         self.grid_chosen_player(chosen[0],chosen[1])
 
     def update_user_roster(self):
+        """Gets updated user roster via App interface and creates labels.
+        Calls method to grid the roster labels.
+        """
         user_roster = self._interface.roster.get_user_roster()
         self._roster_labels = [ttk.Label(master=self._user_frame,
                                     text=f'{position}: {player}',
@@ -146,10 +203,15 @@ class DraftView:
         self.grid_user_roster()
 
     def grid_user_roster(self):
+        """Method that grids created roster labels
+        """
         for i, label in enumerate(self._roster_labels):
             label.grid(row=10+i, column=0)
 
     def delete_user_labels(self):
+        """Deletes the recommended players from view after pick has been
+        made and initializes list for next user pick
+        """
         for i in range(3):
             self.user_labels[i].destroy()
             self.choose_buttons[i].destroy()
@@ -157,6 +219,8 @@ class DraftView:
         self.choose_buttons = []
 
     def generate_choose_buttons(self):
+        """Generates ttk buttons used for selecting recommended player
+        """
         self.choose_buttons = [ttk.Button(master=self._user_frame,
                                 text="Choose",
                                 command=lambda: self.player_chosen(0)),
@@ -168,6 +232,9 @@ class DraftView:
                                 command=lambda: self.player_chosen(2))]
 
     def get_bot_choice(self):
+        """Calls for App interface to make player selection for bot and
+        labels and grids the selected player.
+        """
         player = self._interface.bot_turn()
 
         bot_choice_label = ttk.Label(master=self._draft_frame,
@@ -186,6 +253,14 @@ class DraftView:
 
 
     def grid_players_for_user(self, player_data: list):
+        """Gets recommended players for user and creates labels
+        and grids them along with player search entry box and
+        appropriate buttons.
+
+        Args:
+            player_data (list): List containing 3 lists for recommended players,
+            player names, their teams and playing positions.
+        """
         self._player_names = player_data[0]
         self._teams = player_data[1]
         self._positions = player_data[2]

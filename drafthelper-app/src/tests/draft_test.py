@@ -1,7 +1,7 @@
 import unittest
 from services.draft import Draft
-from services.roster import Roster
-from services.consensusranking import ConsensusRanking
+from entities.roster import Roster
+from entities.consensusranking import ConsensusRanking
 
 
 class TestRoster(unittest.TestCase):

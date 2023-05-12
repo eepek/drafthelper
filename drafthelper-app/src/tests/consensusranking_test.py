@@ -1,5 +1,5 @@
 import unittest
-from services.consensusranking import ConsensusRanking
+from entities.consensusranking import ConsensusRanking
 
 
 class ConsensusrankingTest(unittest.TestCase):

@@ -1,7 +1,7 @@
-from services.roster import Roster
-from services.consensusranking import ConsensusRanking
+from entities.roster import Roster
+from entities.consensusranking import ConsensusRanking
 from services.draft import Draft
-from services.settings import Settings
+from entities.settings import Settings
 
 
 class App:
@@ -35,6 +35,7 @@ class App:
         self.__league_size = 0
         self.__team_name = ""
         self.is_draft_done = False
+        self._format_changes = False
 
         self.roster = Roster(self.__league_size, self.__draft_position, self.__team_name)
         self.consensusranking = ConsensusRanking()
@@ -46,7 +47,7 @@ class App:
         self.user_choices = []
 
         #Tekstikäyttöliittymää varten
-        # self.settings = Settings()
+        self.settings = Settings()
 
 
 
@@ -60,6 +61,10 @@ class App:
         Relays Consensusranking and updated roster information to Draft class.
         """
         self.roster = Roster(self.__league_size, self.__draft_position, self.__team_name)
+        if self._format_changes:
+            scoring, position_amounts = self.settings.get_changes()
+            self.roster.set_positions(position_amounts)
+            self.consensusranking.set_filename(scoring)
         self.roster.initialize()
         self.rounds = self.roster.get_roster_size()
         self.consensusranking.generate_consensusranking()
@@ -75,7 +80,7 @@ class App:
         """
 
         #Tekstikäyttöliittymää varten
-        self.settings = Settings()
+        self.settings.settings()
         self.__league_size = self.settings.get_league_size()
         self.__draft_position = self.settings.get_draft_position()
         self.roster = Roster(self.__league_size, self.__draft_position, self.__team_name)
@@ -87,6 +92,18 @@ class App:
         self.draft.draft_start()
 
 #GETTERS AND SETTERS
+
+    def set_format_change(self, change: bool):
+        """If user changes league settings via the option menu
+        variable self._format_changes is set to True to indicate
+        other functions to use those settings for scoring and
+        position amounts instead of default values.
+
+        Args:
+            change (bool): Boolean that indicates if default or user set
+            settings are used for scoring and position amounts.
+        """
+        self._format_changes = change
 
 
     def set_draft_position(self, position: int):
@@ -194,14 +211,6 @@ class App:
         self.increase_counters()
         return self.user_choices
 
-    # def player_chosen_by_user(self, ident: int):
-    #     """Gets the player chosen by the user from user interface
-    #     and relays it to Roster class to be saved into users roster."""
-    #     player = self.user_choices[0][ident]
-    #     position = self.user_choices[2][ident]
-    #     self.draft.choose_player(player)
-    #     self.roster.add_to_roster(self.__team_name, player, position)
-
     def find_player_by_name(self, name: str):
         """Adds player by name to users roster
         """
@@ -222,10 +231,10 @@ class App:
 
     #After draft
     def save_draft(self):
+        """After the draft when save button is clicked
+        calls Roster class to save the current rosters
+
+        Returns:
+            str: Returns filename for saved .txt file
+        """
         return self.roster.save_final_rosters()
-
-
-
-
-# if __name__ == '__main__':
-#     App()

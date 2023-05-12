@@ -1,9 +1,9 @@
 import unittest
 from services.interface import App
-from services.roster import Roster
-from services.consensusranking import ConsensusRanking
+from entities.roster import Roster
+from entities.consensusranking import ConsensusRanking
 from services.draft import Draft
-from services.settings import Settings
+from entities.settings import Settings
 
 class TestRoster(unittest.TestCase):
     def setUp(self):

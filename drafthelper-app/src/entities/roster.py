@@ -1,5 +1,5 @@
 import datetime
-import os
+from repositories.roster_saver import RosterRepository
 
 class Roster:
     """Class that keeps record of all the players selected by teams and which
@@ -15,6 +15,7 @@ class Roster:
         position_amounts: Dictionary containing amount of players in each position to be chosen
         position_counter: Dictionary counting how many players can be chosen to each position
         for each team."""
+
     def __init__(self, teams: int, user_draft_position: int, user_team_name: str):
         """Creates a new Roster class
 
@@ -25,14 +26,15 @@ class Roster:
         """
         self.teams_amount = teams
         self.user_draft_position = user_draft_position
-        self.bench_counter = 1
+        self.bench_counter = {}
+        self.format_change = False
 
         # Oman joukkueeen nimi
         self.user_team = user_team_name
 
         #initialize
         self.teams = {}
-        self.positions = {}
+        self.positions = []
         self.position_amounts = {}
         self.position_counter = {}
 
@@ -40,14 +42,45 @@ class Roster:
     def initialize(self):
         """Defines positions in rosters and amount of players at each position.
         Calls method to create empty rosters for each team."""
-        # Kaikki joukkueet
-        # Tämä erillisenä, jotta positioiden muokkaus toiminnallisuus helpompi myöhemmin
-        self.positions = ['QB', 'RB1', 'RB2',
-                          'WR1', 'WR2', 'WR3', 'TE', 'K', 'DS']
-        self.position_amounts = {'QB': 1, 'RB': 2,
-                                 'WR': 3, 'TE': 1, 'K': 1, 'DS': 1}
-
+        if not self.format_change:
+                    #Default arvot jos käyttäjä ei muuta niitä
+            self.positions = ['QB', 'RB1', 'RB2',
+                            'WR1', 'WR2', 'WR3', 'TE', 'K', 'DS']
+            self.position_amounts = {'QB': 1, 'RB': 2,
+                                    'WR': 3, 'TE': 1, 'K': 1, 'DS': 1}
         self.create_empty_rosters()
+
+    def get_positions(self):
+        """Returns values for playing positions and amount of players to include
+        in the roster for each position
+
+        Returns:
+            list, dict: positions contains list of positions
+            position_amounts contains positions and the maximum amount of players
+            in each position
+        """
+        return self.positions , self.position_amounts
+
+    def set_positions(self, amounts: dict):
+        """Sets roster positons and their maximum amounts based on user entered
+        information
+
+        Args:
+            amounts (dict): Contains positions and amounts in Key: Position Value: Amount
+            format
+        """
+        self.positions = []
+        self.position_amounts = amounts
+
+        for position, amount in self.position_amounts.items():
+            if amount == 0:
+                continue
+            if amount == 1:
+                self.positions.append(position)
+            if amount > 1:
+                for i in range(1,amount+1):
+                    self.positions.append(position+str(i))
+        self.format_change = True
 
     def create_empty_rosters(self):
         """Creates empty rosters and position counts for each team"""
@@ -74,38 +107,31 @@ class Roster:
         """Sets users team name to given value.
 
         Args:
-            name: Given user team name
+            name: User given team name
         """
         self.user_team = name
 
-    def if_rb_or_wr(self, pos, team):
-        """If chosen players position is RB or WR, converts the position to wanted
-        string format that separates different running backs and wide receivers in team roster
+    def number_the_position(self, pos, team):
+        """If amount of players in the roster is greater than 1, converts the position to wanted
+        string format that separates different positions in team roster
 
         Args:
-            pos: Position of the player (either RB or WR)
+            pos: Position of the player
             team: Team that chose current player
 
         Returns:
             Returns position with index added.
             If that position is filled, labels them as bench players with index (BN)
         """
-        if pos == 'RB':
-            number = 3 - self.position_counter[team]['RB']
-            pos = pos + str(number)
-            if number >= 3:
-                # TÄHÄN AIKANAAN RAJOITUS VALITTAVILLE PELAAJILLE (TAI PENKKIPAIKAT)
-                pos = 'BN' + str(self.bench_counter)
-                self.bench_counter += 1
-            self.position_counter[team]['RB'] -= 1
-        elif pos == 'WR':
-            number = 4 - self.position_counter[team]['WR']
-            pos = pos + str(number)
-            if number >= 4:
-                # TÄHÄN AIKANAAN RAJOITUS VALITTAVILLE PELAAJILLE (TAI PENKKIPAIKAT)
-                pos = 'BN' + str(self.bench_counter)
-                self.bench_counter += 1
-            self.position_counter[team]['WR'] -= 1
+        maximum_amount = self.position_amounts[pos]
+        number = 1 + maximum_amount - self.position_counter[team][pos]
+        self.position_counter[team][pos] -= 1
+        pos = pos + str(number)
+        if number > maximum_amount:
+            if team not in self.bench_counter:
+                self.bench_counter[team] = 1
+            pos = 'BN' + str(self.bench_counter[team])
+            self.bench_counter[team] += 1
 
         return pos
 
@@ -119,8 +145,8 @@ class Roster:
         """
         if pos.startswith('K'):
             pos = 'K'
-        if pos in ['RB', 'WR']:
-            pos = self.if_rb_or_wr(pos, team)
+        if self.position_amounts[pos] > 1:
+            pos = self.number_the_position(pos, team)
         else:
             self.position_counter[team][pos] -= 1
 
@@ -154,7 +180,8 @@ class Roster:
         return len(self.positions)
 
     def return_all_the_rosters(self):
-        """"Prints rosters for all the teams    """
+        """"Prints rosters for all the teams. Used in text based interface.
+        """
         for team, lineup in self.teams.items():
             print(team)
             print('----------------')
@@ -162,14 +189,12 @@ class Roster:
                 print(f' {position}: {players}')
 
     def save_final_rosters(self):
+        """Calls the RosterRepository class to save the rosters in
+        to a text file
+        Returns:
+            str: Filename and path for the saved file
+        """
         current_date = datetime.datetime.now().strftime("%Y-%m-%d-%H-%M")
-        self.__directory = os.path.dirname(__file__)
-        self.__file = os.path.join(self.__directory, '..', 'save_files/')
-        with open(self.__file + current_date +'.txt', 'w') as save_file:
-            for team, roster in self.teams.items():
-                save_file.write(f'--------------- \n')
-                save_file.write(f'{team} \n')
-                save_file.write(f'--------------- \n')
-                for position, player in roster.items():
-                    save_file.write(f'{position}:  {player} \n')
-        return self.__file + current_date + '.txt'
+        saver = RosterRepository(self.teams, current_date)
+        file_path = saver.save_rosters()
+        return file_path
