@@ -24,6 +24,9 @@ class TestRoster(unittest.TestCase):
 
     #Test getters and setters
 
+    def test_set_changes(self):
+        self.interface.set_format_change(True)
+
     def test_set_draft_postion(self):
         self.interface.set_draft_position(1)
         return self.assertTrue(self.interface.is_it_users_turn())
@@ -49,3 +52,9 @@ class TestRoster(unittest.TestCase):
                 return True
 
         return False
+
+    def test_format_changes(self):
+        self.test_set_changes()
+        self.interface.settings.set_changes('PPR', {})
+        self.interface.start()
+        return self.assertTrue(self.interface.roster.format_change)

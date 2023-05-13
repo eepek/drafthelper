@@ -18,7 +18,7 @@ class Settings:
         self.__league_size = int()
         self.__draft_position = int()
         self._scoring = str()
-        self._position_amounts = dict()
+        self._position_amounts = {}
 
     def settings(self):
         """In text based user interface gets league size and draft position

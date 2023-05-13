@@ -1,6 +1,6 @@
-import os
 import pandas as pd
 from repositories.ranking_loader import ConsensusrankingRepository
+
 
 
 class ConsensusRanking:

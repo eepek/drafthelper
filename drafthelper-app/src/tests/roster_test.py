@@ -1,10 +1,15 @@
 import unittest
-from entities.roster import Roster
+import datetime
+from services.interface import App
 
 class TestRoster(unittest.TestCase):
     def setUp(self):
-        self.roster = Roster(10,2,'TestTeam')
-        self.roster.initialize()
+        self.app = App()
+        self.app.set_league_size(10)
+        self.app.set_draft_position(2)
+        self.app.set_team_name('Test Team')
+        self.app.start()
+        self.roster = self.app.roster
 
     def test_creates_empty_rosters(self):
 
@@ -14,23 +19,33 @@ class TestRoster(unittest.TestCase):
         self.roster.set_user_team_name('Testname')
         return self.assertEqual(self.roster.user_team, 'Testname')
 
-    def test_if_rb_or_wr_correct_input(self):
+    def test_number_the_position_correct_input(self):
         team = 'Test team'
         self.roster.position_counter[team] = {'RB': 2, 'WR': 3}
-        rb_position = self.roster.if_rb_or_wr('RB', team)
-        wr_position = self.roster.if_rb_or_wr('WR', team)
+        rb_position = self.roster.number_the_position('RB', team)
+        wr_position = self.roster.number_the_position('WR', team)
         return self.assertEqual(rb_position,'RB1') and self.assertEqual(wr_position,'WR1')
 
-    def test_if_rb_or_wr_non_rbwr_input(self):
-        position = self.roster.if_rb_or_wr('K','Test team')
-        return self.assertEqual(position, 'K')
-
-    def test_if_rb_or_wr_when_position_filled(self):
+    def test_number_the_position_when_position_filled(self):
         team = 'Test Team'
         self.roster.position_counter[team] = {'RB':0, 'WR':0}
-        rb_position = self.roster.if_rb_or_wr('RB', team)
-        wr_position = self.roster.if_rb_or_wr('WR', team)
+        rb_position = self.roster.number_the_position('RB', team)
+        wr_position = self.roster.number_the_position('WR', team)
         return self.assertEqual(rb_position,'BN1') and self.assertEqual(wr_position,'BN2')
 
-if __name__ == "__main__":
-    unittest.main()
+    def test_save_final_rosters(self):
+        self.assertTrue(self.roster.save_final_rosters().endswith('.txt'))
+
+    def test_get_positions(self):
+        positions = ['QB', 'RB1', 'RB2',
+                            'WR1', 'WR2', 'WR3', 'TE', 'K', 'DS']
+        position_amounts = {'QB': 1, 'RB': 2,
+                                    'WR': 3, 'TE': 1, 'K': 1, 'DS': 1}
+        return self.assertEqual(self.roster.get_positions(), (positions, position_amounts))
+
+    def test_set_positions(self):
+        position_amounts = {'QB': 1, 'RB': 2,
+                                    'WR': 2, 'TE': 0, 'K': 1, 'DS': 1}
+        correct_positions = ['QB','RB1','RB2','WR1','WR2','K','DS']
+        self.roster.set_positions(position_amounts)
+        return self.assertEqual(self.roster.positions, correct_positions) and self.assertTrue(self.roster.format_change)

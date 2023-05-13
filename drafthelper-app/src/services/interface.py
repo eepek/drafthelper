@@ -27,6 +27,7 @@ class App:
         rolling_draft_position: shows currently whose turn it is during the draft
         user_choices: list that contains players that are
         represented to the user during his/her turn
+        team_names: Team names that will be chosen for the bot teams
         """
 
 
