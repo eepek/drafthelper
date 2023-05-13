@@ -1,0 +1,72 @@
+--------------- 
+afeaf 
+--------------- 
+QB:  Josh Allen 
+RB1:  Austin Ekeler 
+RB2:  Derrick Henry 
+WR1:  Cooper Kupp 
+WR2:  Tyreek Hill 
+WR3:  A.J. Brown 
+TE:  Dallas Goedert 
+K:  Justin Tucker 
+DS:  Dallas Cowboys 
+--------------- 
+User2 
+--------------- 
+QB:  Justin Herbert 
+RB1:  Nick Chubb 
+RB2:  Breece Hall 
+WR1:  Justin Jefferson 
+WR2:  Garrett Wilson 
+WR3:  Jaylen Waddle 
+TE:  George Kittle 
+K:  Tyler Bass 
+DS:  Philadelphia Eagles 
+--------------- 
+User3 
+--------------- 
+QB:  Jalen Hurts 
+RB1:  Saquon Barkley 
+RB2:  Najee Harris 
+WR1:  Davante Adams 
+WR2:  CeeDee Lamb 
+WR3:  Tee Higgins 
+TE:  Travis Kelce 
+K:  Harrison Butker 
+DS:  San Francisco 49ers 
+--------------- 
+User4 
+--------------- 
+QB:  Lamar Jackson 
+RB1:  Christian McCaffrey 
+RB2:  Kenneth Walker III 
+WR1:  Amon-Ra St. Brown 
+WR2:  DK Metcalf 
+WR3:  Deebo Samuel 
+TE:  Mark Andrews 
+K:  Nick Folk 
+DS:  Denver Broncos 
+--------------- 
+User5 
+--------------- 
+QB:  Patrick Mahomes II 
+RB1:  Jonathan Taylor 
+RB2:  Travis Etienne Jr. 
+WR1:  Stefon Diggs 
+WR2:  Drake London 
+WR3:  Chris Godwin 
+TE:  T.J. Hockenson 
+K:  Younghoe Koo 
+DS:  Buffalo Bills 
+--------------- 
+User6 
+--------------- 
+QB:  Trevor Lawrence 
+RB1:  Josh Jacobs 
+RB2:  Rhamondre Stevenson 
+WR1:  Ja'Marr Chase 
+WR2:  DeVonta Smith 
+WR3:  Chris Olave 
+TE:  Kyle Pitts 
+K:  Daniel Carlson 
+DS:  New England Patriots 

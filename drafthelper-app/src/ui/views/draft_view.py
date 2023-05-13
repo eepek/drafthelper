@@ -73,14 +73,12 @@ class DraftView:
 
         self._roster_labels = [ttk.Label(master=self._user_frame,
                                     text=f'{position}: {player}',
-                                    style=''
+                                    style='self.style.roster.TLabel'
                                     )
                                     for position, player in self._interface.roster.get_user_roster().items()]
-        self._choose_another_label = ttk.Label(master=self._user_frame, text="Choose other player:")
+
         #Buttons and entry
         self.generate_choose_buttons()
-        self._player_name_entry = ttk.Entry(master=self._user_frame, style='self.style.entry.TEntry')
-        self._find_button = ttk.Button(master=self._user_frame, text="Find", command=self.find_player)
 
         #Grid
 
@@ -128,7 +126,7 @@ class DraftView:
         """Creates team name labels and grids them
         """
         team_names = [ttk.Label(master=self._draft_frame,
-                                text=f'{team_name}', style='self.style.draftFplayer.TLabel')
+                                text=f'{team_name}', style='self.style.team.TLabel')
                                 for team_name in self._interface.get_team_names()]
         for i, team in enumerate(team_names):
             team.grid(row=1, column=1+i)
@@ -144,7 +142,7 @@ class DraftView:
         """
         player_label = ttk.Label(master=self._draft_frame,
                                  text=f'{name}\n{position}',
-                                 style='self.style.draftFplayer.TLabel')
+                                 style='self.style.draftPlayer.TLabel')
         if position.startswith('K'):
             position = 'K'
         color = self._roster_colors[position]
@@ -156,6 +154,7 @@ class DraftView:
                             sticky='EW'
                             )
         self._player_name_entry.delete(0, 'end')
+        self.update_user_roster()
         self.delete_user_labels()
         self.generate_choose_buttons()
         self.__startstop = True
@@ -197,7 +196,7 @@ class DraftView:
         user_roster = self._interface.roster.get_user_roster()
         self._roster_labels = [ttk.Label(master=self._user_frame,
                                     text=f'{position}: {player}',
-                                    style=''
+                                    style='self.style.roster.TLabel'
                                     )
                                     for position, player in user_roster.items()]
         self.grid_user_roster()
@@ -215,6 +214,9 @@ class DraftView:
         for i in range(3):
             self.user_labels[i].destroy()
             self.choose_buttons[i].destroy()
+        self._choose_another_label.destroy()
+        self._player_name_entry.destroy()
+        self._find_button.destroy()
         self.user_labels = []
         self.choose_buttons = []
 
@@ -230,6 +232,9 @@ class DraftView:
                                 ttk.Button(master=self._user_frame,
                                 text="Choose",
                                 command=lambda: self.player_chosen(2))]
+        self._choose_another_label = ttk.Label(master=self._user_frame, text="Choose other player:", background='#F6F1F1')
+        self._player_name_entry = ttk.Entry(master=self._user_frame, style='self.style.entry.TEntry')
+        self._find_button = ttk.Button(master=self._user_frame, text="Find", command=self.find_player)
 
     def get_bot_choice(self):
         """Calls for App interface to make player selection for bot and
@@ -239,7 +244,7 @@ class DraftView:
 
         bot_choice_label = ttk.Label(master=self._draft_frame,
                                            text = f'{player[0]}\n{player[1]}',
-                                           style='self.style.draftFplayer.TLabel')
+                                           style='self.style.draftPlayer.TLabel')
         if player[1].startswith('K'):
             color =self._roster_colors['K']
         else:
@@ -273,6 +278,6 @@ class DraftView:
             self.user_labels[i].grid(row=1+i, column=0)
             self.choose_buttons[i].grid(row=1+i, column=1)
 
-        self._player_name_entry.grid(row=4+i, column=0)
+        self._player_name_entry.grid(row=4+i, column=0, pady=5)
         self._choose_another_label.grid(row=3+i, column=0)
-        self._find_button.grid(row=5+i, column=0)
+        self._find_button.grid(row=5+i, column=0, pady=5)

@@ -28,6 +28,8 @@ class Roster:
         self.user_draft_position = user_draft_position
         self.bench_counter = {}
         self.format_change = False
+        self.team_names = []
+
 
         # Oman joukkueeen nimi
         self.user_team = user_team_name
@@ -49,6 +51,15 @@ class Roster:
             self.position_amounts = {'QB': 1, 'RB': 2,
                                     'WR': 3, 'TE': 1, 'K': 1, 'DS': 1}
         self.create_empty_rosters()
+
+    def set_team_names(self, names: list):
+        """Gets list of team names for bot teams from App class in shuffled
+        order
+
+        Args:
+            names (list): List of team names
+        """
+        self.team_names = names
 
     def get_positions(self):
         """Returns values for playing positions and amount of players to include
@@ -89,7 +100,7 @@ class Roster:
                 team_name = self.user_team
 
             else:
-                team_name = f'User{str(i)}'
+                team_name = self.team_names[i]
 
             for position in self.positions:
                 if team_name in self.teams:

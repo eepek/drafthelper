@@ -1,3 +1,4 @@
+from random import shuffle
 from entities.roster import Roster
 from entities.consensusranking import ConsensusRanking
 from services.draft import Draft
@@ -49,6 +50,12 @@ class App:
         #Tekstikäyttöliittymää varten
         self.settings = Settings()
 
+        self.team_names = ["DAKstreet Boys", "Russell Sprouts", "Baskin Dobbins",
+                           "Baby Chark", "Judge Jeudy", "Waddle Vision", "Breakin’ T-Law",
+                           "Obi-Wan Jakobi", "Brees Knees", "Aaron It Out", "Burrowito Bowl",
+                           "Run CMC", "Aiyuken!", "Chark Week", "Fort Knox", "Kittle Corn",
+                           "Boyds to Men", "Zeke and Destroy"]
+
 
 
     #Graafinen käyttöliittymä
@@ -65,6 +72,8 @@ class App:
             scoring, position_amounts = self.settings.get_changes()
             self.roster.set_positions(position_amounts)
             self.consensusranking.set_filename(scoring)
+        shuffle(self.team_names)
+        self.roster.set_team_names(self.team_names)
         self.roster.initialize()
         self.rounds = self.roster.get_roster_size()
         self.consensusranking.generate_consensusranking()
@@ -225,7 +234,7 @@ class App:
 
         Returns:
             Player chosen by bot user as tuple containing player name and position"""
-        team = 'User' + str(self.rolling_draft_position)
+        team = self.team_names[self.rolling_draft_position]
         self.increase_counters()
         return self.draft.bot_turn(team)
 
