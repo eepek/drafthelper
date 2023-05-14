@@ -44,6 +44,7 @@ class Roster:
     def initialize(self):
         """Defines positions in rosters and amount of players at each position.
         Calls method to create empty rosters for each team."""
+
         if not self.format_change:
                     #Default arvot jos käyttäjä ei muuta niitä
             self.positions = ['QB', 'RB1', 'RB2',

@@ -18,5 +18,8 @@
 |2.5|4|Docstring dokumentaatio ja muutamia testejä lisätty
 |3.5|5|Lisätty pelaajan hakeminen GUI näkymässä. Selkeytetty funktioita ja yhdistety samankaltaisia|
 |4.5|2|Siirretty tkinterin tyylit omaan tiedostoonsa|
-|11.5|7|Korjattu uusi bugi. Lisätty asetusvaihtoehtoja.|
-|yht|66|
+|11.5|7|Korjattu uusi bugi. Lisätty asetusvaihtoehtoja|
+|12.5|6|Dokumentaation päivitystä ja lisäämistä. Siistitty koodia ja erotettu txt-versiossa sovelluslogiikkaa ja käyttöliittymää|
+|13.5|4|Dokumentaation työstöä, lisää testejä ja parannettu kansiorakennetta|
+|14.5|2|Dokumentaation päivitystä ja viimeistelyä|
+|yht|78|

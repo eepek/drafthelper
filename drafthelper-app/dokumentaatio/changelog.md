@@ -22,7 +22,8 @@
     - Draft tapahtuma toimii, mutta pelaaja ei pysty vielä hakemaan nimellä
 
 ## Viikko 7
+- Eriytetty käyttöliittymää sovelluslogiikasta, myös tekstikäyttöliittymässä
 - Pelaajan pystyy hakemaan myös nimellä sekä graafisessa että tekstikäyttöliittymässä
-- Käyttäjä voi valita oman liigansa pisteytysformaatin (vaikuttaa pelaajien suositusjärjestykseen) ja pelipaikkakohtaiset pelaajamäärät yleisimmistä vaihtoehdoista File valikosta löytyvästä ikkunasta.
+- Käyttäjä voi valita oman liigansa pisteytysformaatin (vaikuttaa pelaajien suositusjärjestykseen) ja pelipaikkakohtaiset pelaajamäärät yleisimmistä vaihtoehdoista Options valikosta löytyvästä ikkunasta.
 - Varaustapahtuman jälkeen, tulokset voi tallentaa tekstitiedostoon, jonka voi avata ohjelmasta nappia painamalla
 - Lisätty värit erottamaan eri pelipaikat varattujen pelaajien joukosta

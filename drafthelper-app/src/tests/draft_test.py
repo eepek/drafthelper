@@ -4,7 +4,7 @@ from entities.consensusranking import ConsensusRanking
 from services.interface import App
 
 
-class TestRoster(unittest.TestCase):
+class DraftTest(unittest.TestCase):
     def setUp(self):
         self.app = App()
         self.app.set_league_size(10)

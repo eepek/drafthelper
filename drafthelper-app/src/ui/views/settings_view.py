@@ -35,10 +35,10 @@ class SettingsView:
     def set_up(self):
         """Sets up variables and value lists for league size and draft positon optionmenus
         """
-        self.__league_sizes = [i for i in range(6,15)]
+        self.__league_sizes = [i for i in range(6,13)]
         self.__league_size = IntVar(None, 6)
 
-        self.__draft_positions = [i for i in range(1,15)]
+        self.__draft_positions = [i for i in range(1,13)]
         self.__draft_position = IntVar(None,1)
 
 

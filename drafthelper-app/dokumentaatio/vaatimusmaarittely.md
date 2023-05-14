@@ -30,8 +30,8 @@ Graafisessa käyttöliittymässä käyttäjä pääseee myös options valikon ka
 
   * Ohjelma näyttää 3 parhaimmaksi arvioitua pelaajaa, ottaen huomioon käyttäjän jo täytetyt pelipaikat.
 
-  * Ohjelma tarjoaa hakuruudun, jolloin käyttäjä voi valita kokoonpanoonsa pelaajan, joka ei ole näkyvissä. 
-  
+  * Ohjelma tarjoaa hakuruudun, jolloin käyttäjä voi valita kokoonpanoonsa pelaajan, joka ei ole näkyvissä.
+
   * Pelaaja lisätään käyttäjän joukkueen kokoonpanoon
 
 ### Varaustilaisuuden päätyttyä
@@ -49,3 +49,9 @@ Graafisessa käyttöliittymässä käyttäjä pääseee myös options valikon ka
   * Edellisvuoden aktuaalin varausnumeron (ADP) ja konsensuarvion eron (ECR)
 
   * Pelaajan kuvan ja joukkueen logon
+
+- Oman ranking tiedoston tuominen ohjelman perusdataksi
+
+- Simuloidut "persoonat", jotka painottavat erilaisia varaustyylejä
+
+- Txt tiedoston sijasta, luodaan HTML-tiedosto, joka antaa paremman graafisen kuvan varaustilaisuuden lopputuloksesta

@@ -30,7 +30,7 @@ Käyttöliittymän luokat pääosin pelkästään näyttävät tietoa, jonka ne 
 
 ### Tekstikäyttöliittymä versio
 
- [App](../src/services/interface.py) luokka konstruktuoi muut luokat ja käynnistää [Draft](../src/services/draft.py) luokassa pyörivän sovelluslogiikan. [Settings](../src/entities/settings.py) luokka mahdollistaa käyttäjälle oman liigan koon, sekä oman varausvuoron määrittämisen. Draft luokka hakee ja tallentaa tietoa sekä [Consensusranking](../src/entities/consensusranking.py), että [Roster](../src/entities/roster.py) luokkiin. Draft luokka hoitaa ohjelman toiminnallisuuden ja käyttäjälle näkyvät toiminnot. Consensusranking luokka pitää yllä CSV tiedostosta haettua tietokantaa, joka on tallennettu Pandas Dataframe muodossa. Roster luokka ylläpitää tietoa jo valituista pelaajista, sekä hallinnoi pelipaikka kohtaisia suositus pelaajamääriä.
+ [App](../src/services/interface.py) luokka konstruktuoi muut luokat ja käynnistää [TextUI](../src/ui/ui_text.py) luokassa pyörivän sovelluslogiikan. [Settings](../src/entities/settings.py) luokka mahdollistaa käyttäjälle oman liigan koon, sekä oman varausvuoron määrittämisen. [Draft](../src/services/draft.py) luokka hakee ja tallentaa tietoa sekä [Consensusranking](../src/entities/consensusranking.py), että [Roster](../src/entities/roster.py) luokkiin. TextUI luokka hoitaa käyttäjälle näkyvät tulosteet ja syötteiden pyynnöt, jotka se välittää eteenpäin Draft luokalle. Consensusranking luokka pitää yllä CSV tiedostosta haettua tietokantaa, joka on tallennettu Pandas Dataframe muodossa. Roster luokka ylläpitää tietoa jo valituista pelaajista, sekä hallinnoi pelipaikka kohtaisia suositus pelaajamääriä.
 
 ### Graafisen käyttöliittymän versio
 

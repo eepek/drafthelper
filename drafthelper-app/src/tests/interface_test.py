@@ -2,14 +2,13 @@ import unittest
 from services.interface import App
 from entities.roster import Roster
 from entities.consensusranking import ConsensusRanking
-from services.draft import Draft
-from entities.settings import Settings
 
-class TestRoster(unittest.TestCase):
+class TestInterface(unittest.TestCase):
     def setUp(self):
         self.interface = App()
         self.interface.roster = Roster(10,5,'Team')
         self.interface.consensusranking = ConsensusRanking()
+
 
     def test_is_it_users_turn_wrong_postion(self):
         self.interface.set_draft_position(5)
@@ -23,6 +22,11 @@ class TestRoster(unittest.TestCase):
         return self.assertEqual(1, self.interface.rolling_draft_position)
 
     #Test getters and setters
+
+    def test_get_all_teams(self):
+        test_teams = {'Test Team': {'QB': 'Tester', 'RB': 'Testy McTestFace'}}
+        self.interface.roster.teams =  test_teams
+        return self.assertEqual(self.interface.get_all_teams(),test_teams)
 
     def test_set_changes(self):
         self.interface.set_format_change(True)

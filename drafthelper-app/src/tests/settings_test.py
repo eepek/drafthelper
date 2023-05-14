@@ -1,7 +1,7 @@
 import unittest
 from services.interface import App
 
-class TestRoster(unittest.TestCase):
+class TestSettings(unittest.TestCase):
     def setUp(self):
         self.app = App()
         self.scoring_format = "Test-Format"

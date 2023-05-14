@@ -1,8 +1,9 @@
 from random import shuffle
 from entities.roster import Roster
 from entities.consensusranking import ConsensusRanking
-from services.draft import Draft
 from entities.settings import Settings
+from services.draft import Draft
+from ui.ui_text import TextUI
 
 
 class App:
@@ -42,6 +43,7 @@ class App:
         self.roster = Roster(self.__league_size, self.__draft_position, self.__team_name)
         self.consensusranking = ConsensusRanking()
         self.draft = Draft(self.roster, self.consensusranking)
+        self.txt_ui = TextUI(self.draft, self.roster, self.consensusranking)
 
         self.rounds = 0
         self.current_round = 1
@@ -94,12 +96,14 @@ class App:
         self.__league_size = self.settings.get_league_size()
         self.__draft_position = self.settings.get_draft_position()
         self.roster = Roster(self.__league_size, self.__draft_position, self.__team_name)
+        self.roster.set_team_names(self.team_names)
         self.roster.initialize()
         self.consensusranking.generate_consensusranking()
         self.draft = Draft(self.roster, self.consensusranking)
         self.draft.set_draft_positon(self.__draft_position)
         self.draft.set_league_size(self.__league_size)
-        self.draft.draft_start()
+        self.txt_ui = TextUI(self.draft, self.roster, self.consensusranking)
+        self.txt_ui.draft_start()
 
 #GETTERS AND SETTERS
 

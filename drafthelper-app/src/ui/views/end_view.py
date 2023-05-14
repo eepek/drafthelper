@@ -45,8 +45,7 @@ class EndView:
         self._header_frame.grid(row=0, column=0, sticky='WE')
         self._roster_frame.grid(row=1, column=0, sticky='NSWE')
         self._header_label.grid(row=0, column=0, padx=20, pady=20)
-        # self._save_label.grid()
-        # self._save_button.grid()
+
         #Grid config
         self._root.columnconfigure(0, weight=1)
         self._root.rowconfigure(0, weight=1)
