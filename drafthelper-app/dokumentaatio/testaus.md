@@ -1,4 +1,4 @@
-#Sovelluksen testit
+# Sovelluksen testit
 
 Sovellus sisältää käyttäjän antamiin syötteisiin liittyvät järjestelmätason testit, joitten toimivuutta on testattu erilaisilla syötteillä sekä teksti- että graafisessa käyttöliittymässä. Automatisoitu testaus on toteutettu Unittestillä.
 
