@@ -47,3 +47,25 @@ Tietokonepelaajat valitsevat omalla vuorollaan parhaiksi arvioiduista pelaajista
 ![EndView](kuvat/end_view.png)
 
 Kun varaustilaisuus on saatu päätökseen, ohjelma näyttää sinulle vielä kaikkien joukkueiden lopulliset kokoonpanot. Tässä näkymässä voit _save_ nappia painamalla myös tallentaa varatut joukkueet .txt tiedostoon, joka tallentuu kansioon /save_files. Voit halutessasi _open_ nappia painamalla avata tiedoston suoraan ohjelmasta.
+
+### Testaukseen käytettävät kommennot
+
+Testit ajetaan komennolla:
+
+
+```bash
+poetry run invoke test
+```
+
+Coverage raportti html muodossa muodostetaan komennolla (raportti löytyy _htmlcov_ hakemistosta):
+
+
+```bash
+poetry run invoke coverage-report
+```
+
+Pylint tarkistuksen voi ajaa kommennolla:
+
+```bash
+poetry run invoke lint
+```
