@@ -26,7 +26,7 @@ Haaraumakattavuudeksi saatiin 83%, johon eivät kuulu käyttöliittymä luokat. 
 Käyttäjän syötteen vaatimia toiminnallisuuksia on testattu sekä teksti- että graafisessakäyttöliittymässä oikeilla, väärillä ja tyhjillä syötteillä.
 Kaikkia [vaatimusmäärittely](vaatimusmaarittely.md) dokumentin toiminnallisuuksia on myös testattu.
 
-Sovellus on haettu ja testattu linux sekä windows käyttöjärjestelmissä asentaen se käyttöohjeen mukaisesti
+Sovellus on haettu ja testattu linux käyttöjärjestelmässä asentaen se käyttöohjeen mukaisesti
 
 ## Tiedossa olevat laatuongelmat
 
