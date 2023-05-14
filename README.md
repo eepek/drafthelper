@@ -1,6 +1,6 @@
 # Draft Helper
 
-Draft helper on ohjelma, jonka tarkoitus on auttaa käyttäjää harjoittelemaan ja kokeilemaan erilaisia skenaarioita NFL:n fantasia liigan varaustilaisuutta varten. Ohjelma mahdollistaa 6-12 joukkueen liigojen varaustilaisuuden mallinnuksen. Valittavana on useita kokoonpano vaihtoehtoja, sekä yleisimmät pisteytyformaatit (PPR, Half-PPR ja Standard). Käyttäjän tueksi ohjelmisto tarjoaa Fantasy Pros sivuston useamman asiantuntijan arvioista koostaman konsensus arvion kolme parasta pelaajaa, jokaisella käyttäjän varausvuorolla. Käyttäjä voi myös valita muun pelaajan kirjoittamalla pelaajan nimen. Muitten varausvuorolla, ohjelmisto valitsee kyseisen vuoron joukkueeseen pelaajan konsensulistan kärkiviisikosta.
+Draft helper on ohjelma, jonka tarkoitus on auttaa käyttäjää harjoittelemaan ja kokeilemaan erilaisia skenaarioita NFL:n fantasia liigan varaustilaisuutta varten. Ohjelma mahdollistaa 6-12 joukkueen liigojen varaustilaisuuden mallinnuksen. Valittavana on useita kokoonpano vaihtoehtoja, sekä yleisimmät pisteytyformaatit (PPR, Half-PPR ja Standard). Käyttäjän tueksi ohjelmisto tarjoaa [Fantasy Pros](https://www.fantasypros.com) sivuston useamman asiantuntijan arvioista koostaman konsensus arvion kolme parasta pelaajaa, jokaisella käyttäjän varausvuorolla. Käyttäjä voi myös valita muun pelaajan kirjoittamalla pelaajan nimen. Muitten varausvuorolla, ohjelmisto valitsee kyseisen vuoron joukkueeseen pelaajan konsensulistan kärkiviisikosta.
 
 Ohjelma on Helsingin Yliopiston Tietojenkäsittelytieteen Ohjelmistotekniikan kurssin harjoitustyö.
 
