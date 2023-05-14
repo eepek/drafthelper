@@ -22,7 +22,7 @@ Ohjelma on Helsingin Yliopiston Tietojenkäsittelytieteen Ohjelmistotekniikan ku
 
 [Release 2.5](https://github.com/eepek/drafthelper/releases/tag/Viikko6)
 
-[Release 14.5](https://github.com/eepek/drafthelper/releases/tag/viikko7)
+[Release 14.5](https://github.com/eepek/drafthelper/releases/tag/loppupalautus)
 
 ## Ohjelman asennus, käyttö ja testaus
 
