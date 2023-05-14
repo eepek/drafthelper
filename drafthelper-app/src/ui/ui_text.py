@@ -58,7 +58,7 @@ class TextUI:
                 print('Virheellinen valinta!')
                 continue
 
-            if choice in [-1, 0, 1, 2, 3, 4]:
+            if choice in [-1, 0, 1, 2]:
                 if choice == -1:
                     chosen_player = self.get_player_from_user()
                 else:
@@ -106,7 +106,7 @@ class TextUI:
             player = input('Anna pelaajan nimi: ')
             chosen_player = self.draft.choose_player(player)
             if chosen_player is None:
-                print(f'Pelaajaa {chosen_player} ei löytynyt')
+                print(f'Pelaajaa {player} ei löytynyt')
                 continue
             print(f'{chosen_player} valittu')
             return chosen_player

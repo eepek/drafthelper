@@ -95,6 +95,7 @@ class App:
         self.settings.settings()
         self.__league_size = self.settings.get_league_size()
         self.__draft_position = self.settings.get_draft_position()
+        self.__team_name = "Your Team"
         self.roster = Roster(self.__league_size, self.__draft_position, self.__team_name)
         self.roster.set_team_names(self.team_names)
         self.roster.initialize()

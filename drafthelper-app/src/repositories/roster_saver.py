@@ -26,7 +26,7 @@ class RosterRepository:
             str: File path of the saved file
         """
         directory = os.path.dirname(__file__)
-        path = os.path.join(directory, '../../data/save_files')
+        path = os.path.join(directory, '../../data/save_files/')
         with open(path + self.__filename +'.txt', 'w', encoding='UTF-8') as save_file:
             for team, roster in self.__teams.items():
                 save_file.write('--------------- \n')
